@@ -1,0 +1,76 @@
+.img-slide {
+    border-radius: 12px;
+    width: 125px;
+    z-index: 0;
+}
+
+
+ion-segment-button {
+    --background: #ffffff;
+    --background-checked: #f58e05;
+    --border-color: #ffffffd3;
+    --color: #f58e05;
+    --color-checked: #ffffff;
+    --margin-bottom: -2px;
+    --margin-end: 0px;
+    --margin-start: 0px;
+    --margin-top: -10px;
+    --padding-bottom: 0px;
+    --padding-end: 0px;
+    --padding-start: 3px;
+    --padding-top: 4px;
+}
+
+.segmentt {
+    width: 320px;
+    padding-top: 35px;
+    height: 70px;
+}
+
+.img-card {
+    border-radius: 12px;
+    width: 225px;
+    height: 315px;
+}
+
+.square{
+     width: 50px;
+     height: 100px;
+     background: transparent;
+     overflow: hidden;
+     border-radius: 12px;
+    }
+  
+  .square img{
+     width: 80%;
+     height: auto;
+    }
+
+  @supports(object-fit: cover){
+      .square img{
+        height: 100%;
+        object-fit: cover;
+        object-position: center center;
+    }
+}
+
+.square-card{
+    width: 50px;
+    height: 100px;
+    background: transparent;
+    overflow: hidden;
+    border-radius: 12px;
+   }
+ 
+ .square-card img{
+    width: 100%;
+    height: auto;
+   }
+
+ @supports(object-fit: cover){
+     .square-card img{
+       height: 90%;
+       object-fit: cover;
+       object-position: center center;
+   }
+}

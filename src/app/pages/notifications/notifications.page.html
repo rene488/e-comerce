@@ -1,0 +1,16 @@
+<ion-content>
+
+  <app-header title="Notifications"></app-header>
+
+  <div style="padding-bottom: 65px;font-family: cursive;">
+    <ion-item *ngFor="let n of notifications" style="padding-bottom: 10px;">
+      <ion-avatar slot="start">
+        <img src={{n.img}} />
+      </ion-avatar>
+      <ion-label class=" ion-text-wrap" style="color: #f58e05;">{{n.name}}
+        <div style="color: gray;font-size: 11px;font-family: cursive;">{{n.content}}</div>
+      </ion-label>
+    </ion-item>
+  </div>
+
+</ion-content>

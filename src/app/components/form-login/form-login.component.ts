@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { Router } from '@angular/router';
 import { debounceTime } from "rxjs/operators";
 
 @Component({
@@ -11,7 +12,7 @@ export class FormLoginComponent implements OnInit {
 
    form;
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(private formBuilder: FormBuilder, private router: Router) {
    
   }
 

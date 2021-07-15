@@ -1,47 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.page.html',
-  styleUrls: ['./home.page.scss'],
+  selector: 'app-favs',
+  templateUrl: './favs.page.html',
+  styleUrls: ['./favs.page.scss'],
 })
-export class HomePage implements OnInit {
-
-
-  segment = 'Food';
+export class FavsPage implements OnInit {
 
 
   products = [
-    { name: 'Burger',
-      img: 'https://thumbs.dreamstime.com/b/hamburguesa-grande-en-el-fondo-blanco-47519244.jpg'
-    },
-    { name:'Pizza special',
-      img:'https://sevilla.abc.es/gurme/wp-content/uploads/sites/24/2013/04/pizza-margarita.jpg'
-    },
-    { name:'chips',
-      img: 'https://img.postershop.me/5844/Products/1968392_1615482926.6924_original.jpg'
-    },
-   
-  ]
-
-  categories = [
-    {
-      id:1,
-      name: 'Food'
-    },
-    { 
-      id:2,
-      name: 'Desserts'
-    },
-    { 
-      id:3,
-      name: 'Additionals'
-    },
-  ]
-
-
-  home = [
     { 
       id: '1',
       name: 'Fried chicken',
@@ -88,23 +55,9 @@ export class HomePage implements OnInit {
   ]
 
 
-  forCategories;
-
- 
-  constructor(private router: Router) { }
-
-
+  constructor() { }
 
   ngOnInit() {
-   this.filtro();
   }
 
-  filtro(){
-    this.forCategories = this.home.filter(res=> res.categories == this.segment);
-  }  
-
-
-  slide = {
-    slidesPerView: 1.5,
-  }
 }

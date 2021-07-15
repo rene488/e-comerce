@@ -1,9 +1,38 @@
 <ion-content>
 
-  <h1>Bienvenido </h1>
+  <app-header title="Home"></app-header>
 
-  <ion-button (click)="logout()" expand="block" fill="clear" shape="round">
-    Cerrar sesion
-  </ion-button>
-
+    <div style="padding-bottom: 65px;">
+      <ion-slides [options]="slide"  >
+        <ion-slide *ngFor="let p of products" >
+          <ion-card style="width: 250px;" class="square">
+            <img src={{p.img}}>
+             <span  style="color: #f58e05;">
+              {{p.name}}
+             </span>
+          </ion-card>
+        </ion-slide>
+     </ion-slides>
+     <center>
+       <ion-segment [(ngModel)]="segment" class="segmentt" (ionChange)="filtro()">
+         <ion-segment-button *ngFor="let c of categories" style="font-size: 10px;" value="{{c.name}}">
+           <ion-label>{{c.name}}</ion-label>
+         </ion-segment-button>
+       </ion-segment>
+     </center>
+  
+  
+     <ion-slides [options]="slide" style="padding-top: 20px;" >
+       <ion-slide *ngFor="let c of forCategories">
+         <ion-card style="width: 225px;height: 335px;border-radius: 12px;" class="square-card">
+           <img src={{c.img}}>
+           <div style="color: #f58e05;">
+             {{c.name}}
+             <span style="padding-left: 85px;">{{c.price | currency: 'USD'}}</span>
+           </div>
+         </ion-card>
+       </ion-slide>
+     </ion-slides>
+    </div>
+       
 </ion-content>

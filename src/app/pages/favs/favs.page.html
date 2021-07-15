@@ -1,0 +1,30 @@
+<ion-content>
+       
+  <app-header title="Favorites"></app-header>
+
+
+
+
+      <div style="padding-bottom: 65px;">
+        <ion-grid fixed>
+          <ion-row>
+            <ion-col size="6" *ngFor="let p of products" >
+              <ion-card class="shadow" style="border-radius: 15px;">
+                <ion-grid fixed>
+                  <ion-row>
+                    <ion-col size="12">
+                      <div class="square">
+                        <img src="{{p.img}}" >
+                      </div>
+                       <span style="color: #f58e05;">{{p.name}}</span>
+                      <span style="color: #f58e05;padding-left: 17px;">{{p.price | currency: 'USD'}}</span>
+                    </ion-col>
+                  </ion-row>
+                </ion-grid>
+              </ion-card>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </div>
+
+</ion-content>
