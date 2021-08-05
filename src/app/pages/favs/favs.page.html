@@ -5,7 +5,7 @@
 
 
 
-      <div style="padding-bottom: 65px;">
+      <div style="padding-bottom: 65px;padding-top: 20px;">
         <ion-grid fixed>
           <ion-row>
             <ion-col size="6" *ngFor="let p of products" >
@@ -16,7 +16,7 @@
                       <div class="square">
                         <img src="{{p.img}}" >
                       </div>
-                       <span style="color: #f58e05;">{{p.name}}</span>
+                       <span style="color: #5f5959;">{{p.name}}</span>
                       <span style="color: #f58e05;padding-left: 17px;">{{p.price | currency: 'USD'}}</span>
                     </ion-col>
                   </ion-row>

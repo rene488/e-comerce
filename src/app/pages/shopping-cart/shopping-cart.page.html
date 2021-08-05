@@ -1,0 +1,52 @@
+<ion-content>
+  <h3 class="title">towards at cart</h3>
+
+
+ 
+
+  <ion-list lines="none">
+      <ion-item-sliding *ngFor="let c of cart">
+        <ion-item>
+          <div class="cart-item">
+            <div class="image">
+              <ion-img src={{c.img}}></ion-img>
+            </div>
+        
+            <div class="description">
+              <h3>{{c.name}}</h3>
+              <p>{{c.price | currency: 'USD'}}</p>
+            </div>
+        
+            <div class="actions">
+              <ion-buttons >
+                <ion-button (click)="onClick()">
+                  <ion-icon slot="icon-only" name="add"></ion-icon>
+                </ion-button>
+              </ion-buttons>
+              <div class="counter">{{c.quantity}}</div>
+              <ion-buttons >
+                <ion-button (click)="onClick()">
+                  <ion-icon slot="icon-only" name="remove"></ion-icon>
+                </ion-button>
+              </ion-buttons>
+            </div>
+          </div>
+        </ion-item>
+        <ion-item-options side="start">
+          <ion-item-option (click)="favorite(item)">Favorite</ion-item-option>
+          <ion-item-option color="primary" (click)="share(item)">Share</ion-item-option>
+        </ion-item-options>
+    
+        <ion-item-options side="end">
+          <ion-item-option (click)="unread(item)">
+            <ion-icon  name="trash-outline" size="large" color="danger"></ion-icon>
+          </ion-item-option>
+        </ion-item-options>
+      </ion-item-sliding>
+  </ion-list>
+
+  <div class="empty-cart" >
+    <ion-icon name="d-cart"></ion-icon>
+    <p>Your cart is empty</p>
+  </div>
+</ion-content>

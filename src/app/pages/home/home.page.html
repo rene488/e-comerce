@@ -2,33 +2,33 @@
 
   <app-header title="Home"></app-header>
 
-    <div style="padding-bottom: 65px;">
+    <div style="padding-bottom: 65px;padding-top: 20px;">
       <ion-slides [options]="slide"  >
-        <ion-slide *ngFor="let p of products" >
+        <ion-slide *ngFor="let h of home" >
           <ion-card style="width: 250px;" class="square">
-            <img src={{p.img}}>
-             <span  style="color: #f58e05;">
-              {{p.name}}
+            <img src={{h.img}}>
+             <span  style="color: #5f5959;">
+              {{h.name}}
              </span>
           </ion-card>
         </ion-slide>
      </ion-slides>
      <center>
        <ion-segment [(ngModel)]="segment" class="segmentt" (ionChange)="filtro()">
-         <ion-segment-button *ngFor="let c of categories" style="font-size: 10px;" value="{{c.name}}">
-           <ion-label>{{c.name}}</ion-label>
+         <ion-segment-button *ngFor="let n of category" style="font-size: 10px;" value="{{n.categoryName}}">
+           <ion-label>{{n.categoryName}}</ion-label>
          </ion-segment-button>
        </ion-segment>
      </center>
   
   
      <ion-slides [options]="slide" style="padding-top: 20px;" >
-       <ion-slide *ngFor="let c of forCategories">
-         <ion-card style="width: 225px;height: 335px;border-radius: 12px;" class="square-card">
+       <ion-slide *ngFor="let c of forCategory">
+         <ion-card (click)="productDetail(c)" style="width: 225px;height: 335px;border-radius: 12px;" class="square-card">
            <img src={{c.img}}>
-           <div style="color: #f58e05;">
+           <div style="color: #5f5959;">
              {{c.name}}
-             <span style="padding-left: 85px;">{{c.price | currency: 'USD'}}</span>
+             <span style="padding-left: 85px;color: #f58e05;">{{c.price | currency: 'USD'}}</span>
            </div>
          </ion-card>
        </ion-slide>

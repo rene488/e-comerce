@@ -29,6 +29,10 @@ const routes: Routes = [
         loadChildren: () => import('../../pages/notifications/notifications.module').then( m => m.NotificationsPageModule)
       },
       {
+        path: 'shopping-cart',
+        loadChildren: () => import('../../pages/shopping-cart/shopping-cart.module').then( m => m.ShoppingCartPageModule)
+      },
+      {
         path: '',
         redirectTo: '/tabs/home',
         pathMatch: 'full'
