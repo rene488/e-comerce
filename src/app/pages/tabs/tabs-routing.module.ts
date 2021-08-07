@@ -31,11 +31,7 @@ const routes: Routes = [
       {
         path: 'shopping-cart',
         loadChildren: () => import('../../pages/shopping-cart/shopping-cart.module').then( m => m.ShoppingCartPageModule)
-      },
-      {
-        path: 'products-all',
-        loadChildren: () => import('../../pages/products-all/products-all.module').then( m => m.ProductsAllPageModule)
-      },
+      },    
       {
         path: '',
         redirectTo: '/tabs/home',
