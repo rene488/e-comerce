@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { ShoppingCartPageRoutingModule } from './shopping-cart-routing.module';
 
 import { ShoppingCartPage } from './shopping-cart.page';
+import { ComponentsModule } from 'src/app/components/components.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    ShoppingCartPageRoutingModule
+    ShoppingCartPageRoutingModule,
+    ComponentsModule
   ],
   declarations: [ShoppingCartPage]
 })

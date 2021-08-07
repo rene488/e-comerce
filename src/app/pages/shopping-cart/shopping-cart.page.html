@@ -1,52 +1,73 @@
 <ion-content>
-  <h3 class="title">towards at cart</h3>
+   
 
 
- 
+  <div *ngIf="cart.length == 0" class="empty-cart" >
+    <ion-icon src="../../../assets/icon/shopping-cart.svg"></ion-icon>
+    <p>Your cart is empty</p>
+  </div>
 
-  <ion-list lines="none">
+<div style="padding: 20px;padding-right: 5px;padding-bottom: 60px;">
       <ion-item-sliding *ngFor="let c of cart">
-        <ion-item>
+        <ion-item lines="none">
           <div class="cart-item">
             <div class="image">
-              <ion-img src={{c.img}}></ion-img>
+              <ion-avatar style="width: 90px;height: 90px;">
+                <img src="{{c.img}}" />
+              </ion-avatar>
+              
             </div>
         
-            <div class="description">
-              <h3>{{c.name}}</h3>
-              <p>{{c.price | currency: 'USD'}}</p>
-            </div>
+            <ion-grid fixed>
+              <ion-row>
+                <ion-col size="4"></ion-col>
+                <ion-col size="8">
+                  <div style="font-size: 18px;font-weight: bold;">{{c.name}}</div>
+                  <div style="color: gray;font-size: 14px;">{{c.categoryName}}</div>
+                  <div style="color: #f37500f7;font-size: 17px;">{{c.price | currency: 'USD'}}</div>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+           
         
             <div class="actions">
               <ion-buttons >
-                <ion-button (click)="onClick()">
+                <ion-button (click)="increaseProduct(c)">
                   <ion-icon slot="icon-only" name="add"></ion-icon>
                 </ion-button>
               </ion-buttons>
               <div class="counter">{{c.quantity}}</div>
               <ion-buttons >
-                <ion-button (click)="onClick()">
+                <ion-button (click)="descreaseProduct(c)">
                   <ion-icon slot="icon-only" name="remove"></ion-icon>
                 </ion-button>
               </ion-buttons>
             </div>
           </div>
         </ion-item>
-        <ion-item-options side="start">
-          <ion-item-option (click)="favorite(item)">Favorite</ion-item-option>
-          <ion-item-option color="primary" (click)="share(item)">Share</ion-item-option>
-        </ion-item-options>
     
         <ion-item-options side="end">
-          <ion-item-option (click)="unread(item)">
+          <ion-item-option (click)="removeProduct(c)">
             <ion-icon  name="trash-outline" size="large" color="danger"></ion-icon>
           </ion-item-option>
         </ion-item-options>
       </ion-item-sliding>
-  </ion-list>
+    </div>
 
-  <div class="empty-cart" >
-    <ion-icon name="d-cart"></ion-icon>
-    <p>Your cart is empty</p>
-  </div>
 </ion-content>
+
+<ion-footer >
+  <ion-item style="padding-bottom:70px;" lines="none">
+    <ion-label style="font-weight: bold;"> Total
+    </ion-label>
+    <ion-buttons slot="end">
+      <ion-button (click)="onClick()">  
+          {{getTotal()| currency: 'USD'}}
+      </ion-button>
+      <ion-button style="text-transform: capitalize;" (click)="onClick()" fill="solid" color="primary" shape="round">
+        Pay
+        <ion-icon slot="end" name="card-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-item>
+</ion-footer>

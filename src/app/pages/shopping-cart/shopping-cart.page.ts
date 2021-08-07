@@ -9,18 +9,29 @@ import { CartService } from 'src/app/services/cart.service';
 export class ShoppingCartPage implements OnInit {
   
   cart;
+  total;
+  
   
   constructor(private cartService: CartService) {}
 
   ngOnInit() {
-    this.cart = this.cartService.getCart();
-  }
-  
-  descreaseProduct(){
-    this.cartService.descreaseProduct;
+   this.cart = this.cartService.getCart();
+
   }
 
-  increaseProduct() {
-    this.cartService.increaseProduct;
+  increaseProduct(product) {
+    this.cartService.increaseProduct(product);
+  }
+
+  descreaseProduct(product){
+    this.cartService.descreaseProduct(product);
+  }
+
+  removeProduct(product){
+    this.cartService.removeProduct(product);
+  }
+
+  getTotal(){
+    return this.total = this.cartService.getTotal();
   }
 }

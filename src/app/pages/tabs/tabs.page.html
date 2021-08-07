@@ -6,28 +6,31 @@
 
 <ion-tabs>
 
+ 
   <ion-fab vertical="bottom" horizontal="center" translucent="true">
-    <ion-fab-button (click)="goToShoppingCart()">
-      <ion-icon name="cart"></ion-icon>
+    <ion-fab-button [class.animate__animated]="added.value" [class.animate__shakeX]="added.value" class="ion-no-padding" style="width: 70px;height: 70px;position: relative;right: 5px;" (click)="goToShoppingCart()">
+      <ion-icon [class.cartSelected]="isCart"   [class.cartSelectednone]="!isCart" name="cart"></ion-icon> 
+     <span *ngIf="cartItemCount.value > 0" [class.badge-1]="cartItemCount.value <= 9" [class.badge-2]="cartItemCount.value > 9" class="badge">{{cartItemCount.value}}</span>
+
     </ion-fab-button>
   </ion-fab>
 
-  <ion-tab-bar slot="bottom,top" class="ion-no-border">
-    <ion-tab-button tab="home">
+  <ion-tab-bar slot="bottom,top" style="border-top-left-radius: 20px;" class="ion-no-border">
+    <ion-tab-button (click)="notSelected()" tab="home">
       <ion-icon name="home"></ion-icon>
     </ion-tab-button>
 
-    <ion-tab-button tab="favs">
+    <ion-tab-button (click)="notSelected()" tab="favs">
       <ion-icon name="heart"></ion-icon>
     </ion-tab-button>
 
     <svg height="50" viewBox="0 0 100 50" width="100" xmlns="http://www.w3.org/2000/svg"><path d="M100 0v50H0V0c.543 27.153 22.72 49 50 49S99.457 27.153 99.99 0h.01z" fill="red" fill-rule="evenodd"></path></svg>
 
-    <ion-tab-button tab="notifications">
+    <ion-tab-button (click)="notSelected()" tab="notifications">
       <ion-icon name="notifications"></ion-icon>
     </ion-tab-button>
 
-    <ion-tab-button tab="user-profile">
+    <ion-tab-button (click)="notSelected()" tab="user-profile" style="border-top-right-radius: 20px;">
       <ion-icon name="person-circle"></ion-icon>
     </ion-tab-button>
 

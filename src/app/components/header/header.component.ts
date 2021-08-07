@@ -9,7 +9,7 @@ export class HeaderComponent implements OnInit {
 
 @Input() title;
  
- 
+  date = Date.now();
 
 
   constructor() { }

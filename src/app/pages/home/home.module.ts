@@ -8,6 +8,8 @@ import { HomePageRoutingModule } from './home-routing.module';
 
 import { HomePage } from './home.page';
 import { ComponentsModule } from 'src/app/components/components.module';
+import { StarRatingModule } from 'ionic5-star-rating';
+
 
 @NgModule({
   imports: [
@@ -15,8 +17,10 @@ import { ComponentsModule } from 'src/app/components/components.module';
     FormsModule,
     IonicModule,
     HomePageRoutingModule,
-    ComponentsModule
+    ComponentsModule,
+    StarRatingModule
   ],
+  providers: [],
   declarations: [HomePage]
 })
 export class HomePageModule {}

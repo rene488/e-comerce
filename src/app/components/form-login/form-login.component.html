@@ -1,39 +1,39 @@
-<center style="padding-top: 50px;padding-right: 20px;padding-left: 20px;">
+<center style="padding-top: 0;padding-right: 20px;padding-left: 20px;">
   
   <form  [formGroup]="form" (ngSubmit)="onSubmit()">
-    <div class="mb-3"style="border: 0;font-size: 13px;padding: 20px;">
-      <label style="text-align: start;" for="exampleInputEmail1" class="form-label">Email</label>
-      <div class="shadow">
-       <input  required formControlName="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+    <div class="mb-3" style="border: 0;font-size: 13px;padding: 20px;padding-bottom: 0;">
+      <div style="text-align: start;color:#5f5959;font-size: 14px;">Email</div>
+      <div class="shadow" style="border-radius: 10px;">
+       <input  style="border: 0;border-radius: 10px;" required formControlName="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
      </div>
-      <div *ngIf="(email.dirty || email.touched) && email.errors">
-        <div>
+      <div style="padding-top: 15px;" *ngIf="(email.dirty || email.touched) && email.errors">
+        <div style="border-radius: 20px; font-size: 13px;padding: 0; padding-left: 10px;" class="alert alert-danger">
           <span *ngIf="email.errors?.required">Email is required</span>
           <span *ngIf="email.errors?.email">Insert a valid email</span>
         </div>
       </div>
     </div>
-    <div class="mb-3" style="border: 0; font-size: 13px;padding: 20px;"> 
-      <label for="exampleInputPassword1" class="form-label">Password</label>
-      <div class="shadow" >
-       <input required formControlName="password" type="password" class="form-control" id="exampleInputPassword1">
+    <div class="mb-3" style="border: 0; font-size: 13px;padding: 20px;padding-top: 10px;"> 
+      <div style="text-align: start;color:#5f5959;font-size: 14px;">Password</div>
+      <div class="shadow" style="border-radius: 10px;">
+       <input required formControlName="password" type="password" class="form-control" style="border: 0;" id="exampleInputPassword1">
      </div>
-      <div *ngIf="(password.dirty || password.touched) && password.errors">
-        <div>
+      <div style="padding-top: 15px;" *ngIf="(password.dirty || password.touched) && password.errors">
+        <div style="border-radius: 20px; font-size: 13px;padding: 0; padding-left: 10px;" class="alert alert-danger">
           <span *ngIf="password.errors?.required" >Password is required</span>
           <span *ngIf="password.errors?.minlength">The password must be at least 6 characters</span>
         </div>
       </div>
-    </div>
-    <ion-button (click)="onClick()" fill="clear" shape="round" style="--background: rgb(243, 117, 13);color: white;">
-      <span style="padding-right: 90px;padding-left: 90px;">LOGIN</span>
+      <div style="padding-top: 20px;">
+ <ion-button (click)="goTo()" expand="block" style="text-transform: capitalize;" shape="round" color="primary">
+     Login
     </ion-button>
+</div>
+    </div>
+
+   
   </form>
   
-
-  
-
-
 
 
 </center>

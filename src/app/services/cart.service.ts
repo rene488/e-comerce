@@ -7,14 +7,19 @@ import { Product } from '../models/product.model';
 })
 export class CartService {
 
+
   private cart = [];
   private cartItemCount = new BehaviorSubject(0);
-
+  private added = new BehaviorSubject(false);
   constructor() { }
 
   getCart() {
     return this.cart;
   }
+
+cartAdded(){
+  return this.added;
+}
 
   getCartItemCount() {
     return this.cartItemCount;
@@ -25,23 +30,26 @@ export class CartService {
   }
 
   addProduct(product) {
-
+    let added = false;    
     for (let p of this.cart) {
       if (p.id === product.id) {
-        p.quantity +=1;
+        p.quantity += 1;
+        added = true;
         break;
       }
-      else {
-        this.cart.push(product);
-      }
+    }
+    if (!added) {
+      product.quantity = 1;
+      this.cart.push(product);
     }
     this.cartItemCount.next(this.cartItemCount.value + 1);
+
   }
 
   increaseProduct(product) {
     for (let p of this.cart){
       if (p.id === product.id) {
-        p.amount +=1;
+        p.quantity +=1;
         break;
       }
     }
@@ -51,13 +59,23 @@ export class CartService {
   descreaseProduct(product) {
     for (let [index, p] of this.cart.entries()) {
       if (p.id === product.id) {
-        p.amount -=1;
-        if (p.amount == 0) {
+        p.quantity -=1;
+        if (p.quantity == 0) {
           this.cart.splice(index, 1);
         }
       }
     }
     this.cartItemCount.next(this.cartItemCount.value - 1);
 
+  }
+
+  removeProduct(product) {
+    for (let [index, p] of this.cart.entries()) {
+      if (p.id === product.id) {     
+        this.cart.splice(index, 1);
+      }
+      this.cartItemCount.next(this.cartItemCount.value - p.quantity);
+    }
+    
   }
 }

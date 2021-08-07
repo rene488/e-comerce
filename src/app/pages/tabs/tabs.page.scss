@@ -1,3 +1,50 @@
+
+  
+   
+  .badge-1 {
+    position: absolute;
+    left: 43px;
+    bottom: 33px;
+    width: 19px;
+    height: 19px;
+    padding-top: 4px;
+    padding-left: 6px;
+    border-radius: 50%;
+    background: #2c3144;
+    color: white;
+    font-size: 11px;
+ 
+  }
+
+  .badge-2 {
+    position: absolute;
+    left: 43px;
+    bottom: 33px;
+    width: 19px;
+    height: 19px;
+    padding-top: 4px;
+    padding-left: 4px;
+    border-radius: 50%;
+    background: #2c3144;
+    color: white;
+    font-size: 11px;
+ 
+  }
+
+.cartSelected{
+  color: #ffee00f7;
+  font-size: 40px;
+}
+
+.cartSelectednone{
+  font-size: 40px;
+  color: white;
+}
+
+ion-tab-button{
+  --color-selected: #ffee00f7;
+  --color: white;
+}
 ion-tabs{
     ion-fab {
       margin-bottom: env(safe-area-inset-bottom); /* fix notch ios*/
@@ -21,7 +68,7 @@ ion-tabs{
         position: absolute;
       }
       ion-tab-button {
-        --background: white;
+        --background: #f37500f7;
       }
       ion-tab-button.comments {
         margin-right: 0px;
@@ -35,7 +82,7 @@ ion-tabs{
         width: 90px;
         margin-top: 19px;
         path{
-          fill:  white;
+          fill:  #f37500f7;
         }		
       }
     }

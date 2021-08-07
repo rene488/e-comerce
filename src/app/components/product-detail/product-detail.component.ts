@@ -1,6 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ModalController } from '@ionic/angular';
+import { Router } from '@angular/router';
+import { ModalController, ToastController } from '@ionic/angular';
+import { BehaviorSubject } from 'rxjs';
 import { CartService } from 'src/app/services/cart.service';
+import { FavService } from 'src/app/services/fav.service';
 
 @Component({
   selector: 'app-product-detail',
@@ -9,16 +12,19 @@ import { CartService } from 'src/app/services/cart.service';
 })
 export class ProductDetailComponent implements OnInit {
 
-  @Input() product;
-   
-  
-
-  fav = false;
-
-  constructor(private modalController: ModalController, private cartService: CartService ) { }
+  @Input() product;   
+  cart;
+  favs;
+  added: BehaviorSubject<boolean>;
+  constructor(private modalController: ModalController, 
+    private toastController: ToastController,
+    private cartService: CartService,
+    private favsService: FavService ) { }
 
   ngOnInit() {
-    
+    this.cart = this.cartService.getCart();
+    this.favs = this.favsService.getFavs();
+    this.added = this.cartService.cartAdded();
   }
 
 
@@ -26,13 +32,38 @@ export class ProductDetailComponent implements OnInit {
     this.modalController.dismiss();
   }
 
-  favActive() {
-    this.fav = !this.fav
-  }
-
-  AddProduct(){
-    this.cartService.addProduct(this.product);
+  favActive() {   
+    this.product.fav = !this.product.fav 
+    this.favsService.addProductToFav(this.product);   
     
   }
 
+  animate(){
+    this.added.next(true);
+    setTimeout(() => {
+      this.added.next(false);
+    }, 1000);
+  }
+
+  AddProduct(){
+      this.cartService.addProduct(this.product); 
+      console.log(this.cart);
+      //this.Toast('Product added to cart'); 
+      this.animate();
+      this.close();
+      
+  }
+
+
+  async Toast(message) {
+    const toast = await this.toastController.create({
+      message: message,
+      duration: 500,
+      color: 'primary',
+      position: 'middle'
+    });
+    toast.present();
+  }
+
+  
 }

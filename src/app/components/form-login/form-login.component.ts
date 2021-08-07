@@ -24,6 +24,9 @@ export class FormLoginComponent implements OnInit {
     });
   }
 
+  goTo(){
+    this.router.navigate(['/tabs/home'])
+  }
 
   get email() {
     return this.form.get('email');

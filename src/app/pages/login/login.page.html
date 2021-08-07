@@ -12,10 +12,10 @@
    </div>
   </div>
 
-
-  <h1 style="font-size: 40px; color:#5f5959;text-align: center;margin-top: 120px;">
-    Welcome
-  </h1>
+<div style="padding-top: 90px;">
+  <app-logo  ></app-logo>
+</div>
+  
 
   <app-form-login></app-form-login>
   
@@ -28,16 +28,17 @@
      </svg>
    </div>
  </div>
+
  <center>
- <br>
-      <h1 style="font-size: 15px; color: darkgray;padding-top: 20px;">It also starts with: </h1>
+
+      <h1 style="font-size: 15px; color: darkgray;padding-top: 0px;">It also starts with: </h1>
   <div style="padding-top: 5px;">
-   <ion-button slot="end" style="font-size: 5px;" (click)="onClick()">
-     <ion-icon style="font-size: 30px;" name="logo-facebook"></ion-icon>
-   </ion-button>
-      
-   <ion-button color="primary" slot="end" style="font-size: 5px;" (click)="onClick()">
-     <ion-icon color="light" style="font-size: 30px;" name="logo-google"></ion-icon>
+
+   <ion-button color="primary" style="width: 50px;height: 50px;" class="ion-no-padding" (click)="onClick()">
+    <ion-icon color="light" style="font-size: 25px;" name="logo-facebook"></ion-icon>
+  </ion-button>
+   <ion-button color="primary" style="width: 50px;height: 50px;" class="ion-no-padding" (click)="onClick()">
+     <ion-icon color="light" style="font-size: 25px;" name="logo-google"></ion-icon>
    </ion-button>
   </div>
 </center>
