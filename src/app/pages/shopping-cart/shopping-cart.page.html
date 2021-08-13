@@ -64,7 +64,7 @@
       <ion-button (click)="onClick()">  
           {{getTotal()| currency: 'USD'}}
       </ion-button>
-      <ion-button style="text-transform: capitalize;" (click)="onClick()" fill="solid" color="primary" shape="round">
+      <ion-button style="text-transform: capitalize;" (click)="goPay()" fill="solid" color="primary" shape="round">
         Pay
         <ion-icon slot="end" name="card-outline"></ion-icon>
       </ion-button>

@@ -8,11 +8,12 @@ import { ProductDetailComponent } from './product-detail/product-detail.componen
 import { LogoComponent } from './logo/logo.component';
 import { HeaderdComponent } from './headerd/headerd.component';
 import { HeaderModalComponent } from './header-modal/header-modal.component';
+import { PaymentDetailComponent } from './payment-detail/payment-detail.component';
 
 
 @NgModule({
-  exports: [FormLoginComponent, HeaderComponent, ProductDetailComponent, LogoComponent, HeaderdComponent,HeaderModalComponent],
-  declarations: [FormLoginComponent, HeaderComponent,  ProductDetailComponent, LogoComponent, HeaderdComponent,HeaderModalComponent],
+  exports: [FormLoginComponent, HeaderComponent, ProductDetailComponent, LogoComponent, HeaderdComponent,HeaderModalComponent,PaymentDetailComponent],
+  declarations: [FormLoginComponent, HeaderComponent,  ProductDetailComponent, LogoComponent, HeaderdComponent,HeaderModalComponent,PaymentDetailComponent],
   imports: [
     CommonModule,
     ReactiveFormsModule,

@@ -10,6 +10,7 @@ import { FavsPage } from './favs.page';
 import { ComponentsModule } from 'src/app/components/components.module';
 import { StarRatingModule } from 'ionic5-star-rating';
 
+
 @NgModule({
   imports: [
     CommonModule,
@@ -19,6 +20,7 @@ import { StarRatingModule } from 'ionic5-star-rating';
     ComponentsModule,
     StarRatingModule
   ],
+  providers: [],
   declarations: [FavsPage]
 })
 export class FavsPageModule {}

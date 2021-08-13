@@ -15,11 +15,10 @@ const routes: Routes = [
   {
     path: 'tabs',
     loadChildren: () => import('./pages/tabs/tabs.module').then( m => m.TabsPageModule)
-  },  {
-    path: 'payment-data',
-    loadChildren: () => import('./pages/payment-data/payment-data.module').then( m => m.PaymentDataPageModule)
   },
+  
 
+  
   
 
   

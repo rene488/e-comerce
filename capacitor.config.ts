@@ -2,7 +2,7 @@ import { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
   appId: 'com.ecommerce.app',
-  appName: 'ecommerce',
+  appName: 'Ecommerce',
   webDir: 'www',
   bundledWebRuntime: false
 };

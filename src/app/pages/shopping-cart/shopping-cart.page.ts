@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { CartService } from 'src/app/services/cart.service';
 
 @Component({
@@ -12,7 +13,8 @@ export class ShoppingCartPage implements OnInit {
   total;
   
   
-  constructor(private cartService: CartService) {}
+  constructor(private cartService: CartService,
+    private router: Router) {}
 
   ngOnInit() {
    this.cart = this.cartService.getCart();
@@ -33,5 +35,9 @@ export class ShoppingCartPage implements OnInit {
 
   getTotal(){
     return this.total = this.cartService.getTotal();
+  }
+
+  goPay(){
+    this.router.navigate(['/tabs/payment-data']);
   }
 }

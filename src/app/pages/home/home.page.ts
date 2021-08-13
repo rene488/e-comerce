@@ -70,6 +70,6 @@ export class HomePage implements OnInit {
   }
 
   goToProductsAll() {
-    this.router.navigate(['/tabs/products-all']);  
+    this.router.navigate(['/tabs//products-all']);  
   }
 }

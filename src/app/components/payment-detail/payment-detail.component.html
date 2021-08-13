@@ -1,0 +1,64 @@
+<ion-content>
+
+  <ion-item class="ion-no-padding" lines="none" style="--background: #f58e05;color: white;">
+    <ion-buttons slot="start">
+      <ion-button (click)="close()">
+        <ion-icon color="light" style="font-size: 25px;" name="arrow-back"></ion-icon>
+        <ion-icon color="light" style="font-size: 30px;" src="../../../assets/icon/shopping-cart.svg"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-label>
+      <div style="position: relative;top: 5px;font-weight: bold;font-size: 20px;">Credit card</div>
+      <div style="font-size: 12px;position: relative;bottom: 3px;">E-Commerce</div>
+    </ion-label>
+  </ion-item>
+  <app-header-modal></app-header-modal>
+  
+
+  <div style="padding-left: 10px;padding-right: 10px;">
+
+    <ion-card style="--background: #5f5959;height: 155px;">
+      <div>
+        hello
+      </div>
+    </ion-card>
+
+  </div>
+
+
+  <div style="position: relative;top: 15px;padding-left: 10px;padding-right: 10px;">
+    <ion-card class="shadow" style="border-radius: 20px">
+      <ion-item lines="none">
+        <ion-label style="font-size: 12px;" position="floating">Card Number</ion-label>
+        <ion-input type="tel" [(ngModel)]="card.cardnumber" required></ion-input>
+      </ion-item>
+    </ion-card>
+  </div>
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col size="6">
+        <ion-card class="shadow" style="border-radius: 20px;top: 10px; ">
+          <ion-item lines="none">
+            <ion-label style="font-size: 10px;" position="floating">CardHolder Name</ion-label>
+            <ion-input [(ngModel)]="card.cardholdername" required></ion-input>
+          </ion-item>
+        </ion-card>
+      </ion-col>
+      <ion-col size="6">
+        <ion-card class="shadow" style="border-radius: 20px;top: 10px; ">
+          <ion-item lines="none">
+            <ion-label style="font-size: 12px;" position="floating">Valid Thruv</ion-label>
+            <ion-input type="tel" [(ngModel)]="card.validthruv" required></ion-input>
+          </ion-item>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <div style="position: relative;top: 15px;padding-left: 16px;padding-right: 16px;">
+    <ion-button (click)="pay()" expand="block" style="text-transform: capitalize;" shape="round" color="primary">
+      Next Step
+    </ion-button>
+  </div>
+
+</ion-content>
