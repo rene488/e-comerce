@@ -1,3 +1,4 @@
+import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -10,10 +11,11 @@ import { ModalController, ToastController } from '@ionic/angular';
 })
 export class PaymentDetailComponent implements OnInit {
 
-  card = { cardnumber: '', cardholdername: '', validthruv: '' };
+  card = { cardnumber: '', name: '', cvv: '', expiryDate:''};
   
 
-  constructor(private modalController: ModalController, 
+  constructor(private modalController: ModalController,
+    private datePipe: DatePipe, 
     private router: Router,
     private toastCtrl: ToastController ) { }
 
@@ -29,6 +31,16 @@ export class PaymentDetailComponent implements OnInit {
     }
   }
   
+  formatCardNumber(){
+let cn = this.card.cardnumber.replace(/\d{4}(?=.)/g, '$& ');
+return cn;
+  }
+
+
+  formatExpiryDate(){
+   let ed = this.datePipe.transform(this.card.expiryDate, "MM/YY");
+   return ed;
+  }
   
   validations() {
     
@@ -36,11 +48,18 @@ export class PaymentDetailComponent implements OnInit {
       this.toast('The card number cannot be empty.');
       return false;
     }
-    if (!this.card.cardholdername) {
+
+    if (!this.card.name) {
       this.toast('The name cannot be empty.');
       return false;
     }
-    if (!this.card.validthruv) {
+
+    if (!this.card.expiryDate) {
+      this.toast('The expiry date cannot be empty.');
+      return false;
+    }
+
+    if (!this.card.cvv) {
       this.toast('The card date cannot be empty.');
       return false;
     }

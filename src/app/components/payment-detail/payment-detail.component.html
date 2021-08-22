@@ -15,50 +15,71 @@
   <app-header-modal></app-header-modal>
   
 
-  <div style="padding-left: 10px;padding-right: 10px;">
+  <div style="padding-left: 20px;padding-right: 20px;">
 
-    <ion-card style="--background: #5f5959;height: 155px;">
-      <div>
-        hello
+    <ion-card style="--background: linear-gradient(to right, #3674fa, #538df8);  min-height: 155px;">
+      <ion-item class="ion-no-padding" style="--background: transparent;" lines="none">
+       <ion-buttons slot="start">
+         <ion-button (click)="onClick()">
+           <ion-icon slot="start" style="font-size: 35px;" name="logo-github"></ion-icon>     
+         </ion-button>
+       </ion-buttons>
+      </ion-item>
+
+      
+      <div style="padding: 20px;color: white;font-size: 16px;font-weight: bold;padding-top: 0;padding-bottom: 0;">
+        <div *ngIf="card.name" style="text-transform: capitalize;">{{card.name}}</div> 
+        <div *ngIf="!card.name">Owner Name</div> 
+        <div style="font-size: 23px;" *ngIf="!card.cardnumber">**** **** **** ****</div>
+       <div *ngIf="card.cardnumber">{{formatCardNumber()}}</div> 
+      </div>
+
+
+      <div style="padding: 20px;color: white;font-size: 13px;font-weight: bold;padding-top: 20px;padding-bottom: 10px;">
+        <div>Valid Thru</div>
+        <div *ngIf="!card.expiryDate">00/00</div>
+        <div *ngIf="card.expiryDate">{{formatExpiryDate()}} </div> 
       </div>
     </ion-card>
 
   </div>
 
 
-  <div style="position: relative;top: 15px;padding-left: 10px;padding-right: 10px;">
-    <ion-card class="shadow" style="border-radius: 20px">
-      <ion-item lines="none">
-        <ion-label style="font-size: 12px;" position="floating">Card Number</ion-label>
-        <ion-input type="tel" [(ngModel)]="card.cardnumber" required></ion-input>
-      </ion-item>
-    </ion-card>
-  </div>
-  <ion-grid fixed>
+
+  <ion-grid style="padding-left: 20px;padding-right: 20px;" fixed>
     <ion-row>
+      <ion-col size="12">   
+        <ion-item class="shadow" lines="none" style="border-radius: 20px">
+          <ion-label style="font-size: 13px;" color="medium" position="floating">Name</ion-label>
+          <ion-input type="text" [(ngModel)]="card.name" required></ion-input>
+        </ion-item>     
+    </ion-col>
+      <ion-col size="12">   
+          <ion-item class="shadow" lines="none" style="border-radius: 20px">
+            <ion-label style="font-size: 13px;" color="medium" position="floating">Card Number</ion-label>
+            <ion-input type="tel" [(ngModel)]="card.cardnumber" maxlength="16" required></ion-input>
+          </ion-item>     
+      </ion-col>    
       <ion-col size="6">
-        <ion-card class="shadow" style="border-radius: 20px;top: 10px; ">
-          <ion-item lines="none">
-            <ion-label style="font-size: 10px;" position="floating">CardHolder Name</ion-label>
-            <ion-input [(ngModel)]="card.cardholdername" required></ion-input>
-          </ion-item>
-        </ion-card>
+        <ion-item class="shadow" lines="none" style="border-radius: 20px">
+          <ion-label style="font-size: 13px;" color="medium" position="floating">Expiry Date</ion-label> 
+              <ion-datetime  style="font-size: 13px;" [(ngModel)]="card.expiryDate" max="2030-12-31" display-format="MM-YYYY"></ion-datetime>        
+        </ion-item>  
       </ion-col>
       <ion-col size="6">
-        <ion-card class="shadow" style="border-radius: 20px;top: 10px; ">
-          <ion-item lines="none">
-            <ion-label style="font-size: 12px;" position="floating">Valid Thruv</ion-label>
-            <ion-input type="tel" [(ngModel)]="card.validthruv" required></ion-input>
-          </ion-item>
-        </ion-card>
+        <ion-item class="shadow" lines="none" style="border-radius: 20px">
+          <ion-label style="font-size: 13px;" color="medium"  position="floating">CVV</ion-label>
+          <ion-input type="tel" [(ngModel)]="card.cvv" maxlength="3" required></ion-input>
+        </ion-item>  
       </ion-col>
     </ion-row>
   </ion-grid>
 
-  <div style="position: relative;top: 15px;padding-left: 16px;padding-right: 16px;">
-    <ion-button (click)="pay()" expand="block" style="text-transform: capitalize;" shape="round" color="primary">
-      Next Step
+  <center style="position: relative;top: 15px;padding-left: 16px;padding-right: 16px;">
+    <ion-button (click)="pay()" style="text-transform: capitalize;font-size: 13px;" shape="round" color="primary">
+      Confirm 
+      <ion-icon slot="end" name="checkmark-circle-outline"></ion-icon>
     </ion-button>
-  </div>
+  </center>
 
 </ion-content>

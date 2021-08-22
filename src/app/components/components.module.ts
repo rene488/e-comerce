@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { FormLoginComponent } from './form-login/form-login.component';
@@ -20,6 +20,7 @@ import { PaymentDetailComponent } from './payment-detail/payment-detail.componen
     IonicModule,
     FormsModule
   ],
+  providers: [DatePipe]
   
 })
 export class ComponentsModule { }
