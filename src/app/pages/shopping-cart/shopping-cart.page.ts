@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ToastController } from '@ionic/angular';
 import { CartService } from 'src/app/services/cart.service';
 
 @Component({
@@ -14,7 +15,8 @@ export class ShoppingCartPage implements OnInit {
   
   
   constructor(private cartService: CartService,
-    private router: Router) {}
+    private router: Router,
+    private toasCtrl: ToastController) {}
 
   ngOnInit() {
    this.cart = this.cartService.getCart();
@@ -38,6 +40,18 @@ export class ShoppingCartPage implements OnInit {
   }
 
   goPay(){
+    if(this.cart.length == 0){
+      this.toast('The cart is empy.')
+    }
     this.router.navigate(['/tabs/payment-data']);
+  }
+
+  async toast(message) {
+    const toast = await this.toasCtrl.create({
+      message: message,
+      duration: 1000,
+      color: 'primary'
+    });
+    toast.present();
   }
 }

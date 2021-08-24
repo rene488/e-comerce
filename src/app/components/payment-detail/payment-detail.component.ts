@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ModalController, ToastController } from '@ionic/angular';
+import { CartService } from 'src/app/services/cart.service';
 
 @Component({
   selector: 'app-payment-detail',
@@ -11,39 +12,42 @@ import { ModalController, ToastController } from '@ionic/angular';
 })
 export class PaymentDetailComponent implements OnInit {
 
-  card = { cardnumber: '', name: '', cvv: '', expiryDate:''};
-  
+  card = { cardnumber: '', name: '', cvv: '', expiryDate: '' };
+
 
   constructor(private modalController: ModalController,
-    private datePipe: DatePipe, 
+    private datePipe: DatePipe,
     private router: Router,
-    private toastCtrl: ToastController ) { }
+    private toastCtrl: ToastController,
+    private cartServive: CartService) { }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
   close() {
     this.modalController.dismiss();
   };
-  
+
   pay() {
     if (this.validations()) {
+      this.modalController.dismiss();
       this.router.navigate(['/tabs/shopping-cart']);
+      this.cartServive.removeAll();
     }
   }
-  
-  formatCardNumber(){
-let cn = this.card.cardnumber.replace(/\d{4}(?=.)/g, '$& ');
-return cn;
+
+  formatCardNumber() {
+    let cn = this.card.cardnumber.replace(/\d{4}(?=.)/g, '$& ');
+    return cn;
   }
 
 
-  formatExpiryDate(){
-   let ed = this.datePipe.transform(this.card.expiryDate, "MM/YY");
-   return ed;
+  formatExpiryDate() {
+    let ed = this.datePipe.transform(this.card.expiryDate, "MM/YY");
+    return ed;
   }
-  
+
   validations() {
-    
+
     if (!this.card.cardnumber) {
       this.toast('The card number cannot be empty.');
       return false;

@@ -78,4 +78,9 @@ cartAdded(){
     }
     
   }
+
+  removeAll() {
+    this.cart.splice(0,this.cart.length)
+    this.cartItemCount.next(this.cartItemCount.value * 0);
+  }
 }
