@@ -1,0 +1,43 @@
+.square{
+    width: 150px;
+    height: 250px;
+    background: transparent;
+    overflow: hidden;
+    border-radius: 12px;
+    
+  }
+  
+  .square img{
+    width: 100%;
+    height: auto;
+    
+  }
+  @supports(object-fit: cover){
+      .square img{
+        height: 100%;
+        object-fit: cover;
+        object-position: center center;
+      }
+  }
+
+
+  .square-card{
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    overflow: hidden;
+    border-radius: 12px;
+   }
+ 
+ .square-card img{
+    width: 100%;
+    height: auto;
+   }
+
+ @supports(object-fit: cover){
+     .square-card img{
+       height: 100%;
+       object-fit: cover;
+       object-position: center center;
+   }
+}  

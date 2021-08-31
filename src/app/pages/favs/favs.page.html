@@ -1,46 +1,47 @@
 <ion-content>
-       
+
   <app-headerd title="Favorites"></app-headerd>
 
 
-<center>
+  <center>
 
-      <div style="padding-bottom: 80px;padding-top: 20px;width: 300px;padding-left: 0;">
-        <ion-grid class="ion-no padding" fixed>
-          <ion-row>
-            <ion-col class="ion-no-padding" size="6" style="height: 240px;padding-right: 20px;" *ngFor="let p of favs" >
-             
+    <div style="padding-bottom: 80px;padding-top: 20px;width: 300px;padding-left: 0;">
+      <ion-grid class="ion-no padding" fixed>
+        <ion-row>
+          <ion-col class="ion-no-padding" size="6" style="height: 240px;padding-right: 20px;" *ngFor="let p of favs">
 
 
-              <ion-card  style="width: 100%;height: 150px;border-radius: 12px;" >
-                <div class="square-card">
-                   <img src={{p.img}}>
-                </div>
-      
-                <div style="position: absolute;top: 100px;left: 165px;">
-                  <ion-button color="light" class="ion-no-padding" style="--border-radius: 100%;width: 35px;height: 35px;" (click)="productDetail(c)">
-                    <ion-icon  name="add" style="color: #f58e05;"></ion-icon>
-                  </ion-button>
-                </div>
-            
-               </ion-card>
-               <ion-grid fixed style="position: absolute;top: 160px;bottom: 50px;left: 10px;">
-                 <ion-row>
-                   <ion-col size="12"  style="color: #5f5959;font-size: 14px;text-align: start;">
-                   
-                    {{p.name}}
-                    <ionic5-star-rating  #rating activeIcon="star" defaultIcon="star-outline" activeColor="#fbb556"
+
+            <ion-card style="width: 100%;height: 150px;border-radius: 12px;">
+              <div class="square-card">
+                <img src={{p.img}}>
+              </div>
+
+              <div style="position: absolute;top: 100px;left: 165px;">
+                <ion-button color="light" class="ion-no-padding" style="--border-radius: 100%;width: 35px;height: 35px;"
+                  (click)="productDetail(c)">
+                  <ion-icon name="add" style="color: #f58e05;"></ion-icon>
+                </ion-button>
+              </div>
+
+            </ion-card>
+            <ion-grid fixed style="position: absolute;top: 160px;bottom: 50px;left: 10px;">
+              <ion-row>
+                <ion-col size="12" style="color: #5f5959;font-size: 14px;text-align: start;">
+
+                  {{p.name}}
+                  <ionic5-star-rating #rating activeIcon="star" defaultIcon="star-outline" activeColor="#fbb556"
                     defaultColor="#cccccc" readonly="true" rating="{{ p.rating }}" fontSize="11px">
                   </ionic5-star-rating>
-                    
+
                   <div style="color: #f58e05;font-size: 14px;">{{p.price | currency: 'USD'}}</div>
-                  </ion-col>
-                   
-                 </ion-row>
-               </ion-grid>
-            </ion-col>
-          </ion-row>
-        </ion-grid>
-      </div>
-</center>
+                </ion-col>
+
+              </ion-row>
+            </ion-grid>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+  </center>
 </ion-content>

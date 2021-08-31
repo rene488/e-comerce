@@ -8,6 +8,8 @@ import { ProductsAllPageRoutingModule } from './products-all-routing.module';
 
 import { ProductsAllPage } from './products-all.page';
 import { ComponentsModule } from 'src/app/components/components.module';
+import { StarRatingModule } from 'ionic5-star-rating';
+import { PipesModule } from 'src/app/pipes/pipes.module';
 
 @NgModule({
   imports: [
@@ -15,7 +17,9 @@ import { ComponentsModule } from 'src/app/components/components.module';
     FormsModule,
     IonicModule,
     ProductsAllPageRoutingModule,
-    ComponentsModule
+    ComponentsModule,
+    StarRatingModule,
+    PipesModule
   ],
   declarations: [ProductsAllPage]
 })

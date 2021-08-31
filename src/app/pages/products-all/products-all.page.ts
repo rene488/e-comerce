@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ModalController } from '@ionic/angular';
+import { Products } from 'src/app/services/products-test';
 
 @Component({
   selector: 'app-products-all',
@@ -9,6 +10,9 @@ import { ModalController } from '@ionic/angular';
 })
 export class ProductsAllPage implements OnInit {
 
+  products = Products;
+  textSearch = '';
+
   constructor( private modalController: ModalController,
     private router: Router) { }
 
@@ -16,7 +20,7 @@ export class ProductsAllPage implements OnInit {
   }
 
   buscar(event){
-    console.log(event);
+    this.textSearch = event.target.value;
   }
 
   close() {
