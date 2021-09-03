@@ -20,14 +20,14 @@ export class HomePage implements OnInit {
 
 
   home = [
-    { name: 'Burger',
-      img: 'https://thumbs.dreamstime.com/b/hamburguesa-grande-en-el-fondo-blanco-47519244.jpg'
+    { 
+      img: 'https://images.pizzahut.services/vol/phco/images/cms/minipromocion/takeaway_home.jpg'
     },
-    { name:'Pizza special',
-      img:'https://sevilla.abc.es/gurme/wp-content/uploads/sites/24/2013/04/pizza-margarita.jpg'
+    { 
+      img:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7PEgLK4Mrd5Kg4Pc-NyqEllvMfMX8eI0e6g&usqp=CAU'
     },
-    { name:'chips',
-      img: 'https://img.postershop.me/5844/Products/1968392_1615482926.6924_original.jpg'
+    { 
+      img: 'https://lh3.googleusercontent.com/proxy/sd-YsP7TMu2MfRBKKR_VRl0AYi7aD4MWh6u6_YmtyzEyc1y3UpZUZHxXZcgfpyXbSspqDiQ3BQbsZa-sELEfyOJBpIQPdIbqP3hyP7dEYeXvFipVjtprJWzjdJc'
     },
    
   ]

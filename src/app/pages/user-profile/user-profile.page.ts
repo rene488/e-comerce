@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActionSheetController } from '@ionic/angular';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-user-profile',
@@ -13,7 +14,8 @@ export class UserProfilePage implements OnInit {
    orders = 15;
    tips = 100
 
-  constructor(private actionSheetController: ActionSheetController) { }
+  constructor(private actionSheetController: ActionSheetController,
+              private authService: AuthService) { }
 
   ngOnInit() {
   }
@@ -37,11 +39,13 @@ export class UserProfilePage implements OnInit {
         text: 'Log out',
         icon: 'log-out-outline',
         handler: () => {
-          console.log('Cancel clicked');
+          this.authService.logOut();
         }
       }]
     });
   
     await actionSheet.present();
   }
+
+ 
 }

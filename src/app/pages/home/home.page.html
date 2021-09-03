@@ -6,9 +6,6 @@
         <ion-slide *ngFor="let h of home">
           <ion-card style="width: 250px;" class="square">
             <img src={{h.img}}>
-            <span style="color: #5f5959;">
-              {{h.name}}
-            </span>
           </ion-card>
         </ion-slide>
       </ion-slides>
@@ -56,18 +53,6 @@
               </ion-col>
             </ion-row>
           </ion-grid>
-
-
-          <!-- <ion-grid fixed style="position: absolute;top: 190px;bottom: 50px;">
-           <ion-row>
-             <ion-col size="8"  style="color: #5f5959;font-size: 14px;text-align: start;">{{c.name}} 
-              <ionic5-star-rating  #rating activeIcon="star" defaultIcon="star-outline" activeColor="#fbb556"
-              defaultColor="#cccccc" readonly="true" rating="{{ c.rating }}" fontSize="13px">
-            </ionic5-star-rating>
-            </ion-col>
-             <ion-col size="4" style="color: #f58e05;font-size: 14px;padding-top: 15px;" >{{c.price | currency: 'USD'}}</ion-col>
-           </ion-row>
-         </ion-grid>-->
         </ion-slide>
       </ion-slides>
     </div>
