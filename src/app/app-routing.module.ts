@@ -18,14 +18,6 @@ const routes: Routes = [
   },
   
 
-  
-  
-
-  
-
-  
-
-  
 
   
 

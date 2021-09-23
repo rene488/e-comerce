@@ -34,7 +34,7 @@ export class ProductDetailComponent implements OnInit {
 
   favActive() {   
     this.product.fav = !this.product.fav 
-    this.favsService.addProductToFav(this.product);   
+    this.favsService.addProductFav(this.product);   
     
   }
 

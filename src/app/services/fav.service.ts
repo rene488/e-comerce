@@ -14,7 +14,7 @@ export class FavService {
     return this.favs
   }
 
-  addProductToFav(product) {
+  addProductFav(product) {
     let added = false;    
     for (let p of this.favs) {
       if (p.id === product.id) {

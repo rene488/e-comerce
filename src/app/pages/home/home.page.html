@@ -33,7 +33,7 @@
                   <div style="position: absolute;top: 100px;left: 165px;">
                     <ion-button color="light" class="ion-no-padding"
                       style="--border-radius: 100%;width: 35px;height: 35px;" (click)="productDetail(c)">
-                      <ion-icon name="add" style="color: #f58e05;"></ion-icon>
+                      <ion-icon name="add" style="color: #ff0000;"></ion-icon>
                     </ion-button>
                   </div>
                 </ion-card>
@@ -43,11 +43,11 @@
                 <ion-item style="--background: transparent;padding-top: 5px;" lines="none">
                   <ion-label>
                     <div style="color: #5f5959;font-size: 14px;text-align: start;">{{c.name}}</div>
-                    <ionic5-star-rating #rating activeIcon="star" defaultIcon="star-outline" activeColor="#fbb556"
+                    <ionic5-star-rating #rating activeIcon="star" defaultIcon="star-outline" activeColor="#ffc404"
                       defaultColor="#cccccc" readonly="true" rating="{{ c.rating }}" fontSize="13px">
                     </ionic5-star-rating>
                   </ion-label>
-                  <span slot="end" style="color: #f58e05;font-size: 14px;padding-top: 5px;">{{c.price | currency:
+                  <span slot="end" style="color: #ff0000;font-size: 14px;padding-top: 5px;">{{c.price | currency:
                     'USD'}}</span>
                 </ion-item>
               </ion-col>

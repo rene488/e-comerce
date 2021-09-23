@@ -17,9 +17,9 @@ export class CartService {
     return this.cart;
   }
 
-cartAdded(){
-  return this.added;
-}
+  cartAdded() {
+    return this.added;
+  }
 
   getCartItemCount() {
     return this.cartItemCount;
@@ -30,7 +30,7 @@ cartAdded(){
   }
 
   addProduct(product) {
-    let added = false;    
+    let added = false;
     for (let p of this.cart) {
       if (p.id === product.id) {
         p.quantity += 1;
@@ -47,9 +47,9 @@ cartAdded(){
   }
 
   increaseProduct(product) {
-    for (let p of this.cart){
+    for (let p of this.cart) {
       if (p.id === product.id) {
-        p.quantity +=1;
+        p.quantity += 1;
         break;
       }
     }
@@ -59,7 +59,7 @@ cartAdded(){
   descreaseProduct(product) {
     for (let [index, p] of this.cart.entries()) {
       if (p.id === product.id) {
-        p.quantity -=1;
+        p.quantity -= 1;
         if (p.quantity == 0) {
           this.cart.splice(index, 1);
         }
@@ -71,16 +71,16 @@ cartAdded(){
 
   removeProduct(product) {
     for (let [index, p] of this.cart.entries()) {
-      if (p.id === product.id) {     
+      if (p.id === product.id) {
         this.cart.splice(index, 1);
       }
       this.cartItemCount.next(this.cartItemCount.value - p.quantity);
     }
-    
+
   }
 
   removeAll() {
-    this.cart.splice(0,this.cart.length)
+    this.cart.splice(0, this.cart.length)
     this.cartItemCount.next(this.cartItemCount.value * 0);
   }
 }

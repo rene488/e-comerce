@@ -1,5 +1,5 @@
 <ion-content>
-  <ion-item class="ion-no-padding" lines="none" style="--background: #f58e05;color: white;">
+  <ion-item class="ion-no-padding" lines="none" style="--background: #c50505;color: white;">
     <ion-buttons slot="start">
       <ion-button (click)="close()">
         <ion-icon color="light" style="font-size: 25px;" name="arrow-back"></ion-icon>
@@ -7,7 +7,7 @@
       </ion-button>
     </ion-buttons>
     <ion-label>
-      <div style="position: relative;top: 5px;font-weight: bold;font-size: 20px;">{{product.name}}</div> 
+      <div style="position: relative;top: 5px;font-weight: bold;font-size: 20px;color: #ffc404;">{{product.name}}</div> 
       <div style="font-size: 12px;position: relative;bottom: 3px;">E-Commerce</div>
     </ion-label>
   </ion-item>
@@ -23,7 +23,7 @@
 
   <div style="padding: 10px;padding-top: 10px;">
     <ion-card class="shadow" style="border-radius: 20px;padding-bottom: 15px;padding-top: 15px;">
-      <h1 style="color: #f58e05; font-size: 30px;padding-left: 15px;padding-top: 10px;">{{product.name}}</h1>
+      <h1 style="color: #ffc404; font-size: 30px;padding-left: 15px;padding-top: 10px;">{{product.name}}</h1>
 
       <h1 style="color: #5f5959;font-size: 15px;padding-top: 10px;padding-left: 15px;">Description</h1>
 
@@ -33,13 +33,13 @@
 
       <div>
         <ion-item lines="none" style="--background: transparent;">
-          <ion-label style="color: #f58e05;"> {{product.price| currency: 'USD'}} </ion-label>
+          <ion-label style="color: #c50505;"> {{product.price| currency: 'USD'}} </ion-label>
           <ion-buttons slot="end">
             <ion-button (click)="favActive()">
-              <ion-icon  *ngIf ="!product.fav" style="padding-right: 5px;font-size: 20px;color: #f58e05;"  name="heart-outline" ></ion-icon>
-              <ion-icon  *ngIf ="product.fav" style="padding-right: 5px;font-size: 20px;color: #f58e05;" name="heart"></ion-icon>
+              <ion-icon  *ngIf ="!product.fav" style="padding-right: 5px;font-size: 20px;color: #c50505;"  name="heart-outline" ></ion-icon>
+              <ion-icon  *ngIf ="product.fav" style="padding-right: 5px;font-size: 20px;color: #c50505;" name="heart"></ion-icon>
             </ion-button>
-            <ion-button (click)="AddProduct()" fill="clear" shape="round" style="--background: rgb(243, 117, 13);color: white;font-size: 15px;">
+            <ion-button (click)="AddProduct()" fill="clear" shape="round" style="--background: #ffc404;color: white;font-size: 15px;">
               <span style="font-size: 10px;">ADD TO CART</span>
             </ion-button>
           </ion-buttons>

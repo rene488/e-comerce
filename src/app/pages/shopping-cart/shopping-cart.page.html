@@ -23,8 +23,8 @@
                 <ion-col size="4"></ion-col>
                 <ion-col size="8">
                   <div style="font-size: 18px;font-weight: bold;">{{c.name}}</div>
-                  <div style="color: gray;font-size: 14px;">{{c.categoryName}}</div>
-                  <div style="color: #f37500f7;font-size: 17px;">{{c.price | currency: 'USD'}}</div>
+                  <div style="color: #ffc404;font-size: 14px;">{{c.categoryName}}</div>
+                  <div style="color: #c50505;font-size: 17px;">{{c.price | currency: 'USD'}}</div>
                 </ion-col>
               </ion-row>
             </ion-grid>
@@ -33,12 +33,12 @@
             <div class="actions">
               <ion-buttons >
                 <ion-button (click)="increaseProduct(c)">
-                  <ion-icon slot="icon-only" name="add"></ion-icon>
+                  <ion-icon slot="icon-only" name="add" style="color: #c50505;"></ion-icon>
                 </ion-button>
               </ion-buttons>
               <div class="counter">{{c.quantity}}</div>
               <ion-buttons >
-                <ion-button (click)="descreaseProduct(c)">
+                <ion-button (click)="descreaseProduct(c)" style="color: #ffc404;">
                   <ion-icon slot="icon-only" name="remove"></ion-icon>
                 </ion-button>
               </ion-buttons>
@@ -61,10 +61,10 @@
     <ion-label style="font-weight: bold;"> Total
     </ion-label>
     <ion-buttons slot="end">
-      <ion-button (click)="onClick()">  
+      <ion-button (click)="onClick()" style="color: #c50505;">  
           {{getTotal()| currency: 'USD'}}
       </ion-button>
-      <ion-button style="text-transform: capitalize;" (click)="goPay()" fill="solid" color="primary" shape="round">
+      <ion-button style="text-transform: capitalize;--background: #ffc404;" (click)="goPay()" fill="solid" shape="round">
         Pay
         <ion-icon slot="end" name="card-outline"></ion-icon>
       </ion-button>

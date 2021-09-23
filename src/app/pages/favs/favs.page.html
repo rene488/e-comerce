@@ -16,25 +16,18 @@
               <div class="square-card">
                 <img src={{p.img}}>
               </div>
-
-              <div style="position: absolute;top: 100px;left: 165px;">
-                <ion-button color="light" class="ion-no-padding" style="--border-radius: 100%;width: 35px;height: 35px;"
-                  (click)="productDetail(c)">
-                  <ion-icon name="add" style="color: #f58e05;"></ion-icon>
-                </ion-button>
-              </div>
-
             </ion-card>
+            
             <ion-grid fixed style="position: absolute;top: 160px;bottom: 50px;left: 10px;">
               <ion-row>
                 <ion-col size="12" style="color: #5f5959;font-size: 14px;text-align: start;">
 
                   {{p.name}}
-                  <ionic5-star-rating #rating activeIcon="star" defaultIcon="star-outline" activeColor="#fbb556"
+                  <ionic5-star-rating #rating activeIcon="star" defaultIcon="star-outline" activeColor="#ffc404"
                     defaultColor="#cccccc" readonly="true" rating="{{ p.rating }}" fontSize="11px">
                   </ionic5-star-rating>
 
-                  <div style="color: #f58e05;font-size: 14px;">{{p.price | currency: 'USD'}}</div>
+                  <div style="color: #c50505;font-size: 14px;">{{p.price | currency: 'USD'}}</div>
                 </ion-col>
 
               </ion-row>
