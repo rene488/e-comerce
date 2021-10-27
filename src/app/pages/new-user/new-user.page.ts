@@ -21,7 +21,7 @@ export class NewUserPage implements OnInit {
     this.form = this.formBuilder.group({
       email: [''.toLowerCase(), [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]],
-      confirmPassword: ['', Validators.required, Validators.minLength(6)],
+      confirmPassword: ['', [Validators.required, Validators.minLength(6)]],
       username: ['', [Validators.required]],
     });
   }

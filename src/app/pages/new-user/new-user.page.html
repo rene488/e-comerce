@@ -50,8 +50,8 @@
 
         <div style="padding-top: 10px;" *ngIf="(confirmPassword.dirty || confirmPassword.touched) && confirmPassword.errors">
           <div style="border-radius: 20px; font-size: 13px;padding: 0; padding-left: 10px;" class="alert alert-danger">
-            <span *ngIf="confirmPassword.errors?.required">Password is required</span>
-            <span *ngIf="confirmPassword.errors?.minlength">The password must be at least 6 characters</span>
+            <span *ngIf="confirmPassword.errors?.required">Confirm password is required</span>
+            <span *ngIf="confirmPassword.errors?.minlength">password must match</span>
           </div>
         </div>
       </div>
