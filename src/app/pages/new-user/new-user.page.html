@@ -1,50 +1,77 @@
 <ion-content>
-    <app-headerd back="true" title="New User"></app-headerd>
-    <div class="ion-text-center" style="padding-top: 0;padding-right: 20px;padding-left: 20px;">
+  <app-headerd back="true" title="New User"></app-headerd>
+  <div class="ion-text-center" style="padding-top: 0;padding-right: 20px;padding-left: 20px;">
 
-      <form [formGroup]="form" (ngSubmit)="onSubmit()" style="padding: 15px;">
-    
-        <div class="did-floating-label-content">
-          <input class="did-floating-input" formControlName="email" type="email" placeholder=" ">
-          <label class="did-floating-label">Email</label>
-    
-          <div style="padding-top: 10px;" *ngIf="(email.dirty || email.touched) && email.errors">
-            <div style="border-radius: 20px; font-size: 13px;padding: 0; padding-left: 10px;" class="alert alert-danger">
-              <span *ngIf="email.errors?.required">Email is required</span>
-              <span *ngIf="email.errors?.email">Insert a valid email</span>
-            </div>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" style="padding: 15px;">
+
+      <div class="did-floating-label-content">
+        <input class="did-floating-input" formControlName="email" type="email" placeholder=" ">
+        <label class="did-floating-label">Email</label>
+
+        <div style="padding-top: 10px;" *ngIf="(email.dirty || email.touched) && email.errors">
+          <div style="border-radius: 20px; font-size: 13px;padding: 0; padding-left: 10px;" class="alert alert-danger">
+            <span *ngIf="email.errors?.required">Email is required</span>
+            <span *ngIf="email.errors?.email">Insert a valid email</span>
           </div>
         </div>
-    
-        
-    
-        <div class="did-floating-label-content">
-          <input class="did-floating-input" formControlName="password" type="password" placeholder=" ">
-          <label class="did-floating-label">Password</label>
-    
-    
-          <div style="padding-top: 10px;" *ngIf="(password.dirty || password.touched) && password.errors">
-            <div style="border-radius: 20px; font-size: 13px;padding: 0; padding-left: 10px;" class="alert alert-danger">
-              <span *ngIf="password.errors?.required">Password is required</span>
-              <span *ngIf="password.errors?.minlength">The password must be at least 6 characters</span>
-            </div>
+      </div>
+
+      <div class="did-floating-label-content">
+        <input class="did-floating-input" formControlName="username" type="text" placeholder=" ">
+        <label class="did-floating-label">Username</label>
+
+
+        <div style="padding-top: 10px;" *ngIf="(username.dirty || username.touched) && username.errors">
+          <div style="border-radius: 20px; font-size: 13px;padding: 0; padding-left: 10px;" class="alert alert-danger">
+            <span *ngIf="username.errors?.required">The username is required</span>
+            <span *ngIf="username.errors?.minlength">The username must be at least 4 characters</span>
           </div>
         </div>
-    
-        
-    
-        <div>
-          <ion-button (click)="goTo()" color="secondary" style="text-transform: capitalize;" shape="round">
-            <span style="padding-left: 40px;padding-right: 40px;">Sign Up</span>
-          </ion-button>
-        </div>
-    
-      </form>
-    
-    
-    
-    </div>
+      </div>
 
- <app-footer></app-footer>
+
+      <div class="did-floating-label-content">
+        <input class="did-floating-input" formControlName="password" type="password" placeholder=" ">
+        <label class="did-floating-label">Password</label>
+
+
+        <div style="padding-top: 10px;" *ngIf="(password.dirty || password.touched) && password.errors">
+          <div style="border-radius: 20px; font-size: 13px;padding: 0; padding-left: 10px;" class="alert alert-danger">
+            <span *ngIf="password.errors?.required">Password is required</span>
+            <span *ngIf="password.errors?.minlength">The password must be at least 6 characters</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="did-floating-label-content">
+        <input class="did-floating-input" formControlName="confirmPassword" type="password" placeholder=" ">
+        <label class="did-floating-label">Confirm password</label>
+
+
+        <div style="padding-top: 10px;" *ngIf="(confirmPassword.dirty || confirmPassword.touched) && confirmPassword.errors">
+          <div style="border-radius: 20px; font-size: 13px;padding: 0; padding-left: 10px;" class="alert alert-danger">
+            <span *ngIf="confirmPassword.errors?.required">Password is required</span>
+            <span *ngIf="confirmPassword.errors?.minlength">The password must be at least 6 characters</span>
+          </div>
+        </div>
+      </div>
+
+      
+
+
+      <div>
+        <ion-button (click)="goTo()" color="secondary" style="text-transform: capitalize;" shape="round">
+          <span style="padding-left: 40px;padding-right: 40px;">Sign in</span>
+        </ion-button>
+      </div>
+
+
+    </form>
+
+
+
+  </div>
+
+  <app-footer></app-footer>
 
 </ion-content>

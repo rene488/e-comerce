@@ -21,11 +21,17 @@ export class NewUserPage implements OnInit {
     this.form = this.formBuilder.group({
       email: [''.toLowerCase(), [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]],
+      confirmPassword: ['', Validators.required, Validators.minLength(6)],
+      username: ['', [Validators.required]],
     });
   }
 
   goTo(){
     this.router.navigate(['/tabs/home'])
+  }
+
+  get username() {
+    return this.form.get('username')
   }
 
   get email() {
@@ -34,6 +40,10 @@ export class NewUserPage implements OnInit {
 
   get password() {
     return this.form.get('password');
+  }
+
+  get confirmPassword() {
+    return this.form.get('confirmPassword')
   }
 
 }
