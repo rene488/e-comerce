@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Product } from '../models/product.model';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -7,8 +7,17 @@ import { Product } from '../models/product.model';
 export class FavService {
 
   private favs = [];
-
+  private counter = new BehaviorSubject(0);
+ 
   constructor() { }
+
+  getCounter(){
+    return this.counter;
+  }
+
+  clean(){
+    this.counter.next(this.counter.value * 0);
+  }
 
   getFavs() {
     return this.favs
@@ -25,6 +34,7 @@ export class FavService {
     }
     if (!added) {  
       this.favs.push(product);
+      this.counter.next(this.counter.value + 1);
     }
   }
 

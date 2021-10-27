@@ -2,15 +2,14 @@
 
   <app-headerd title="Notifications"></app-headerd>
 
-  <div style="padding-bottom: 75px;">
-    <ion-item *ngFor="let n of notifications" style="padding-bottom: 10px;">
-      <ion-avatar slot="start">
-        <img src={{n.img}} />
-      </ion-avatar>
-      <ion-label class=" ion-text-wrap" style="color: #c50505;">{{n.name}}
-        <div style="color: #5f5959;font-size: 11px;">{{n.content}}</div>
-      </ion-label>
-    </ion-item>
-  </div>
+  <ion-item  *ngFor="let n of notifications" style="--background: tranparent;">
+    <ion-avatar slot="start">
+      <img src="{{n.img}}">
+    </ion-avatar>
+    <ion-label class="ion-text-wrap" style="color:#3c3c3a;font-size: 14px;font-weight: bold;">{{n.title}}
+      <div style="color: gray;font-size: 11px;">{{n.content}} </div>
+    <div style="font-size: 9px;color: rgb(172, 171, 171);padding-top: 5px;">{{n.date | dateAgo}}</div>
+    </ion-label>
+  </ion-item>
 
 </ion-content>

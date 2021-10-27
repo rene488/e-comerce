@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { FiltroPipe } from './filtro.pipe';
+import { DateAgoPipe } from './date-ago.pipe';
 
 
 
@@ -7,9 +8,10 @@ import { FiltroPipe } from './filtro.pipe';
 
 @NgModule({
   declarations: [
-   FiltroPipe
+   FiltroPipe,
+   DateAgoPipe
     
   ],
-  exports: [FiltroPipe],
+  exports: [FiltroPipe, DateAgoPipe],
 })
 export class PipesModule { }

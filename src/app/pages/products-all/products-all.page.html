@@ -1,58 +1,20 @@
 <ion-content>
 
+  <app-headerd title="Search products"></app-headerd>
 
-  <ion-item class="ion-no-padding" lines="none" style="--background: #c50505;color: white;">
-    <ion-buttons slot="start">
-      <ion-button (click)="close()">
-        <ion-icon color="light" style="font-size: 25px;" name="arrow-back"></ion-icon>
-        <ion-icon color="light" style="font-size: 30px;" src="../../../assets/icon/shopping-cart.svg"></ion-icon>
-      </ion-button>
-    </ion-buttons>
-    <ion-label>
-      <div style="position: relative;top: 5px;font-weight: bold;font-size: 20px;color: #ffc404;">Search products</div>
-      <div style="font-size: 12px;position: relative;bottom: 3px;">E-Commerce</div>
-    </ion-label>
-  </ion-item>
-  <app-header-modal></app-header-modal>
+  <ion-grid style="padding: 15px;padding-top: 0;padding-bottom: 90px;" fixed>
+    <ion-row>
+      <ion-col size="12">
+        <ion-searchbar mode="ios" animated (ionChange)="buscar ($event)"></ion-searchbar>
+      </ion-col>
+      <ion-col size="6" style="height: 240px;padding-right: 20px;" *ngFor="let p of products | filtro: textSearch">
 
+        <app-product-card [p]="p"></app-product-card>
 
-  <ion-searchbar animated (ionChange)="buscar ($event)"></ion-searchbar>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 
 
-  <center>
-
-    <div style="padding-bottom: 80px;padding-top: 20px;width: 300px;padding-left: 0;">
-      <ion-grid class="ion-no padding" fixed>
-        <ion-row>
-          <ion-col class="ion-no-padding" size="6" style="height: 240px;padding-right: 20px;"
-            *ngFor="let p of products | filtro: textSearch">
-
-
-
-            <ion-card style="width: 100%;height: 150px;border-radius: 12px;">
-              <div class="square-card">
-                <img src={{p.img}}>
-              </div>
-            </ion-card>
-
-            <ion-grid fixed style="position: absolute;top: 160px;bottom: 50px;left: 10px;">
-              <ion-row>
-                <ion-col size="12" style="color: #5f5959;font-size: 14px;text-align: start;">
-
-                  {{p.name}}
-                  <ionic5-star-rating #rating activeIcon="star" defaultIcon="star-outline" activeColor="#ffc404"
-                    defaultColor="#cccccc" readonly="true" rating="{{ p.rating }}" fontSize="11px">
-                  </ionic5-star-rating>
-
-                  <div style="color: #c50505;font-size: 14px;">{{p.price | currency: 'USD'}}</div>
-                </ion-col>
-
-              </ion-row>
-            </ion-grid>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
-    </div>
-  </center>
 
 </ion-content>

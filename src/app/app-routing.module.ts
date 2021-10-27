@@ -15,13 +15,11 @@ const routes: Routes = [
   {
     path: 'tabs',
     loadChildren: () => import('./pages/tabs/tabs.module').then( m => m.TabsPageModule)
+  },  
+  {
+    path: 'new-user',
+    loadChildren: () => import('./pages/new-user/new-user.module').then( m => m.NewUserPageModule)
   },
-  
-
-
-  
-
-
 ];
 
 @NgModule({

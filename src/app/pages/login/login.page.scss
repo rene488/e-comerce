@@ -1,64 +1,8 @@
-.custom-shape-divider-top-1625420213 {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    overflow: hidden;
-    line-height: 0;
+.google-btn{
+    --background: linear-gradient(to right, #e03226, #e63124);
 }
 
-.custom-shape-divider-top-1625420213 svg {
-    position: relative;
-    display: block;
-    width: calc(100% + 1.3px);
-    height: 150px;
-    transform: rotateY(180deg);
+.fb-btn{
+    --background: linear-gradient(to top, #0166e1, #16a6fb);
 }
 
-.custom-shape-divider-top-1625420213 .shape-fill {
-    fill: #c50505;
-}
-
-/** For mobile devices **/
-@media (max-width: 767px) {
-    .custom-shape-divider-top-1625420213 svg {
-        width: calc(176% + 1.3px);
-        height: 92px;
-    }
-}
-
-.custom-shape-divider-bottom-1625421277 {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    overflow: hidden;
-    line-height: 0;
-    transform: rotate(180deg);
-}
-
-.custom-shape-divider-bottom-1625421277 svg {
-    position: relative;
-    display: block;
-    width: calc(100% + 1.3px);
-    height: 150px;
-    transform: rotateY(180deg);
-}
-
-.custom-shape-divider-bottom-1625421277 .shape-fill {
-    fill: #c50505;
-}
-
-/** For mobile devices **/
-@media (max-width: 767px) {
-    .custom-shape-divider-bottom-1625421277 svg {
-        width: calc(178% + 1.3px);
-        height: 109px;
-    }
-}
-
-.redes-button {
-    padding-left: 100px;
-    padding-top: 30px;
-    font-size: 20px;
-}

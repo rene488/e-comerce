@@ -1,7 +1,6 @@
 <ion-content>
    
 
-
   <div *ngIf="cart.length == 0" class="empty-cart" >
     <ion-icon src="../../../assets/icon/shopping-cart.svg"></ion-icon>
     <p>Your cart is empty</p>
@@ -64,7 +63,7 @@
       <ion-button (click)="onClick()" style="color: #c50505;">  
           {{getTotal()| currency: 'USD'}}
       </ion-button>
-      <ion-button style="text-transform: capitalize;--background: #ffc404;" (click)="goPay()" fill="solid" shape="round">
+      <ion-button style="text-transform: capitalize;" color="secondary" (click)="goPay()" fill="solid" shape="round">
         Pay
         <ion-icon slot="end" name="card-outline"></ion-icon>
       </ion-button>

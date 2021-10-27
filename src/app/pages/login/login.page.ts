@@ -15,5 +15,7 @@ export class LoginPage implements OnInit {
   ngOnInit() {
   }
  
-  
+  SignUp(){
+    this.router.navigate(['new-user']);
+  }
 }

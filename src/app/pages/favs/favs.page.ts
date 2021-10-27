@@ -19,6 +19,11 @@ export class FavsPage implements OnInit {
     this.favs=this.favService.getFavs();
   }
 
+  ionViewWillEnter(){
+    this.favService.clean();
+  }
   
-
+  remove(product){
+    this.favService.removeProduct(product);
+  }
 }
