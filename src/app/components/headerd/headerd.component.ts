@@ -1,4 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { ModalController } from '@ionic/angular';
+
 
 @Component({
   selector: 'app-headerd',
@@ -7,10 +10,19 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class HeaderdComponent implements OnInit {
 
-  @Input() back;
   @Input() title;
-  constructor() { }
+  @Input() backButton;
+  @Input() backButtonModal;
+  constructor(private modalController: ModalController,
+    private router: Router) { }
 
   ngOnInit() {}
 
+  close(){
+    this.modalController.dismiss();
+  }
+
+  GoToPurchases(){
+    this.router.navigateByUrl('/tabs/user-profile/user-purchases');
+  }
 }

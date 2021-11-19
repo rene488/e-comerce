@@ -26,6 +26,11 @@
 @import "~@ionic/angular/css/flex-utils.css";
 @import '~animate.css/animate.min.css';
 
+.header *{
+  margin: 0;
+  padding: 0;
+}
+
 .did-floating-label-content { 
     position:relative; 
     margin-bottom:20px; 

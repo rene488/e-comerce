@@ -1,75 +1,46 @@
 <ion-content>
-
-  <ion-item class="ion-no-padding" lines="none" style="--background: #c50505;color: white;">
+  <div class="header">
+  <ion-item lines="none" style="--background: #c50505;color: white;">
     <ion-buttons slot="start">
-      <ion-button (click)="close()">
+      <ion-button routerLink="/tabs/shopping-cart">
         <ion-icon color="light" style="font-size: 25px;" name="arrow-back"></ion-icon>
         <ion-icon color="light" style="font-size: 30px;" src="../../../assets/icon/shopping-cart.svg"></ion-icon>
       </ion-button>
     </ion-buttons>
     <ion-label>
       <div style="position: relative;top: 5px;font-weight: bold;font-size: 20px;color: #ffc404;">Payment</div>
-      <div style="font-size: 12px;position: relative;bottom: 4px;">E-Commerce</div>
+      <div style="font-size: 12px;position: relative;bottom: 3px;">E-Commerce</div>
     </ion-label>
   </ion-item>
-  <app-header-modal></app-header-modal>
+  <app-shape-header></app-shape-header>
+</div>
 
-  <div style="width: 300px;padding-left: 15px;">
-    <ion-grid fixed>
-      <ion-row>
-        <ion-col size="6">
+<ion-grid class="animate__animated animate__bounceIn" [class.animate__animated]="animate" [class.animate__bounceOut]="animate"  fixed>
+  <ion-row>
+    <ion-col class="ion-no-padding" style="padding-right: 15px;" size="6">
+      <ion-card (click)="PayPalPayment()" style="width: 100%;height: 170px;border-radius: 10px;  --background: linear-gradient(to right,#003d8d, #005fd2);" class="shadow ion-text-center">
+      <ion-icon style="font-size: 80px; padding-top: 30px;" src="../../../assets/icon/paypal.svg"></ion-icon>
+      <div style="color: white; font-weight: bold;">
+        PayPal
+      </div>
+      </ion-card>
+    </ion-col>   
+    <ion-col class="ion-no-padding" style="padding-right: 15px;" size="6">
+      <ion-card (click)="creditCardMethod()"  style="width: 100%;height: 170px;border-radius: 10px;  --background: linear-gradient(to right, #df414e, #dd636e);" class="shadow ion-text-center">
+        
+         <ion-icon style="font-size: 80px; padding-top: 30px;" src="../../../assets/icon/credit-card.svg"></ion-icon>
 
-          <div style="padding-right: 15px;">
-            <ion-card class="shadow" style="width: 120px;height: 120px;border-radius: 10px;">
+         <div style="color: white; font-weight: bold;padding-left: 10px;padding-right: 10px;">
+          Credit Card
+        </div>
+      </ion-card>
+    </ion-col>  
+    
+  </ion-row>
+ 
+  
+</ion-grid>
 
-              <ion-buttons>
-                <ion-button 
-                  style="width: 115px;height: 115px;padding: 10px;padding-bottom: 10px;">
-                  <ion-icon style="font-size: 100px;color: #80808000;" src="../../../assets/icon/paypal.svg"></ion-icon>
-                </ion-button>
-              </ion-buttons>
-            </ion-card>
-          </div>
 
-        </ion-col>
-
-        <ion-col size="6">
-
-          <div style="padding-right: 15px;">
-            <ion-card class="shadow" style="width: 120px;height: 120px;border-radius: 10px;">
-
-              <ion-buttons>
-                <ion-button (click)="paymentDetail(p)"
-                  style="width: 115px;height: 115px;padding: 10px;padding-bottom: 10px;">
-                  <ion-icon style="font-size: 100px;color: #80808000;"
-                    src="../../../assets/icon/tarjeta-de-credito.svg"></ion-icon>
-                </ion-button>
-              </ion-buttons>
-              <span style="position: relative;bottom: 25px;color: gray;color: #c50505;left: 25px;">Credit card</span>
-            </ion-card>
-          </div>
-
-        </ion-col>
-
-        <ion-col size="6">
-
-          <div style="padding-right: 15px;">
-            <ion-card class="shadow" style="width: 120px;height: 120px;border-radius: 10px;">
-
-              <ion-buttons>
-                <ion-button 
-                  style="width: 115px;height: 115px;padding: 10px;padding-bottom: 10px;">
-                  <ion-icon style="font-size: 100px;color: #80808000;" src="../../../assets/icon/efectivo.svg">
-                  </ion-icon>
-                </ion-button>
-              </ion-buttons>
-              <span style="position: relative;bottom: 25px;color: gray;left: 45px;color: #c50505;">Cash</span>
-            </ion-card>
-          </div>
-
-        </ion-col>
-      </ion-row>
-    </ion-grid>
-  </div>
 
 </ion-content>

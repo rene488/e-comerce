@@ -2,7 +2,7 @@
   <app-headerd back="true" title="New User"></app-headerd>
   <div class="ion-text-center" style="padding-top: 0;padding-right: 20px;padding-left: 20px;">
 
-    <form [formGroup]="form" (ngSubmit)="onSubmit()" style="padding: 15px;">
+    <form [formGroup]="form" (ngSubmit)="Submit()" style="padding: 15px;">
 
       <div class="did-floating-label-content">
         <input class="did-floating-input" formControlName="email" type="email" placeholder=" ">
@@ -43,24 +43,11 @@
         </div>
       </div>
 
-      <div class="did-floating-label-content">
-        <input class="did-floating-input" formControlName="confirmPassword" type="password" placeholder=" ">
-        <label class="did-floating-label">Confirm password</label>
-
-
-        <div style="padding-top: 10px;" *ngIf="(confirmPassword.dirty || confirmPassword.touched) && confirmPassword.errors">
-          <div style="border-radius: 20px; font-size: 13px;padding: 0; padding-left: 10px;" class="alert alert-danger">
-            <span *ngIf="confirmPassword.errors?.required">Password is required</span>
-            <span *ngIf="confirmPassword.errors?.minlength">The password must be at least 6 characters</span>
-          </div>
-        </div>
-      </div>
-
-      
+       
 
 
       <div>
-        <ion-button (click)="goTo()" color="secondary" style="text-transform: capitalize;" shape="round">
+        <ion-button type="submit" color="secondary" style="text-transform: capitalize;" shape="round">
           <span style="padding-left: 40px;padding-right: 40px;">Sign in</span>
         </ion-button>
       </div>

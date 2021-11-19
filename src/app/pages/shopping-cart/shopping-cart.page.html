@@ -1,5 +1,7 @@
 <ion-content>
-   
+  <app-shape-header></app-shape-header>   
+<div class="container-cart">
+
 
   <div *ngIf="cart.length == 0" class="empty-cart" >
     <ion-icon src="../../../assets/icon/shopping-cart.svg"></ion-icon>
@@ -22,7 +24,7 @@
                 <ion-col size="4"></ion-col>
                 <ion-col size="8">
                   <div style="font-size: 18px;font-weight: bold;">{{c.name}}</div>
-                  <div style="color: #ffc404;font-size: 14px;">{{c.categoryName}}</div>
+                  <div style="color: gray;font-size: 14px;">{{c.categoryName}}</div>
                   <div style="color: #c50505;font-size: 17px;">{{c.price | currency: 'USD'}}</div>
                 </ion-col>
               </ion-row>
@@ -32,12 +34,12 @@
             <div class="actions">
               <ion-buttons >
                 <ion-button (click)="increaseProduct(c)">
-                  <ion-icon slot="icon-only" name="add" style="color: #c50505;"></ion-icon>
+                  <ion-icon slot="icon-only" name="add" ></ion-icon>
                 </ion-button>
               </ion-buttons>
               <div class="counter">{{c.quantity}}</div>
               <ion-buttons >
-                <ion-button (click)="descreaseProduct(c)" style="color: #ffc404;">
+                <ion-button (click)="descreaseProduct(c)" >
                   <ion-icon slot="icon-only" name="remove"></ion-icon>
                 </ion-button>
               </ion-buttons>
@@ -52,7 +54,7 @@
         </ion-item-options>
       </ion-item-sliding>
     </div>
-
+  </div>
 </ion-content>
 
 <ion-footer >

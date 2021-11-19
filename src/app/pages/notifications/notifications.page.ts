@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FirebaseService } from 'src/app/services/firebase.service';
 import { NotificationsService } from 'src/app/services/notifications.service';
 
 @Component({
@@ -10,7 +11,8 @@ export class NotificationsPage implements OnInit {
 
 
   notifications = [];
-  constructor(private notificationsService: NotificationsService) { }
+  constructor(private notificationsService: NotificationsService,
+    private firebaseService: FirebaseService) { }
 
   ngOnInit() {
     

@@ -1,0 +1,29 @@
+<ion-content>
+ 
+  <app-headerd backButtonModal="true" title="Receipt"></app-headerd>
+
+  <ion-card class="shadow">
+    <ion-item lines="none">
+      <ion-label color="primary" style="font-weight: bold;">Fecha: {{p.date | date: 'shortDate'}} - {{p.date | date: 'shortTime'}}</ion-label>
+    </ion-item>
+    <ion-item *ngFor="let i of p.products" >
+      <ion-avatar slot="start">
+        <img [src]="i.img" />
+      </ion-avatar>
+      <ion-label> <strong>{{i.name}}</strong>
+        <div style="color: #5f5959;font-size: 14px;text-align: start;"> {{i.quantity}} x {{i.price| currency: 'USD'}}</div>
+      </ion-label>
+    </ion-item>
+
+  </ion-card>
+  <app-footer></app-footer>
+</ion-content>
+
+<ion-footer>
+  
+  <ion-item color="primary" lines="none">
+    <ion-label style="font-weight: bold;"> Total
+    </ion-label>
+    <span style="font-weight: bold;" slot="end">{{p.total| currency: 'USD'}}</span>
+  </ion-item>
+</ion-footer>

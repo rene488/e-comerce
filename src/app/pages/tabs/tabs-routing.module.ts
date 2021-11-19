@@ -37,7 +37,7 @@ const routes: Routes = [
         loadChildren: () => import('../../pages/products-all/products-all.module').then( m => m.ProductsAllPageModule)
       },
       {
-        path: 'user-purchases',
+        path: 'user-profile/user-purchases',
         loadChildren: () => import('../../pages/user-purchases/user-purchases.module').then( m => m.UserPurchasesPageModule)
       },
       

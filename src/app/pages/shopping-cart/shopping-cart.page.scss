@@ -1,4 +1,4 @@
-ion-content {
+.container-cart {
     --padding-top: 1.6rem;
     --padding-end: 1.6rem;
 
@@ -27,6 +27,7 @@ ion-content {
         background: #fff;
     }
     .empty-cart {
+        padding-top: 25%;
         height: 90%;
         display: flex;
         flex-direction: column;

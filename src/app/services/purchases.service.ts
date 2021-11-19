@@ -11,10 +11,10 @@ export class PurchasesService {
   constructor() { }
 
   getPurchases(){
-    return this.purchases
+    return this.purchases;
   };
 
   addPurchases(purchase){
-    this.purchases.push(purchase)
+    this.purchases.push(purchase);
   }
 }

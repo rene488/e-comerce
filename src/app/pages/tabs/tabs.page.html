@@ -6,7 +6,9 @@
       <ion-fab-button style="--background: linear-gradient(to top, #cc9d01, #fcd34d);"
         [class.animate__animated]="added.value" [class.animate__shakeX]="added.value" class="ion-no-padding"
         style="width: 70px;height: 70px;position: relative;right: 5px;" (click)="goToShoppingCart()">
-        <ion-icon [class.cartSelected]="isCart" [class.cartSelectednone]="!isCart" name="cart"></ion-icon>
+        <ion-icon *ngIf="selectedPath == '/tabs/shopping-cart'" style="font-size: 40px;" color="primary" name="cart"></ion-icon>
+        <ion-icon *ngIf="selectedPath !== '/tabs/shopping-cart'" style="font-size: 40px;" color="light" name="cart"></ion-icon>
+       
         <span *ngIf="cartItemCount.value > 0" [class.badge-1]="cartItemCount.value <= 9"
           [class.badge-2]="cartItemCount.value > 9" class="badge">{{cartItemCount.value}}</span>
 

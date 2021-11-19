@@ -8,11 +8,17 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { PipesModule } from './pipes/pipes.module';
 
-
+//Firebase
+import { AngularFirestoreModule } from "@angular/fire/firestore";
+import { AngularFireAuthModule} from "@angular/fire/auth";
+import { AngularFireModule } from "@angular/fire";
+import { environment } from "../environments/environment.prod";
 @NgModule({
   declarations: [AppComponent,],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, PipesModule],
+  imports: [AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireAuthModule,
+    AngularFirestoreModule, BrowserModule, IonicModule.forRoot(), IonicModule.forRoot({ mode: 'md' }), AppRoutingModule, PipesModule],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
 })

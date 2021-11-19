@@ -1,19 +1,19 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { HeaderModalComponent } from './header-modal.component';
+import { ShapeHeaderComponent } from './shape-header.component';
 
-describe('HeaderModalComponent', () => {
-  let component: HeaderModalComponent;
-  let fixture: ComponentFixture<HeaderModalComponent>;
+describe('ShapeHeaderComponent', () => {
+  let component: ShapeHeaderComponent;
+  let fixture: ComponentFixture<ShapeHeaderComponent>;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ HeaderModalComponent ],
+      declarations: [ ShapeHeaderComponent ],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(HeaderModalComponent);
+    fixture = TestBed.createComponent(ShapeHeaderComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));

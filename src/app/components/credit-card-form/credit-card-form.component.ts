@@ -2,19 +2,22 @@ import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { ModalController, ToastController } from '@ionic/angular';
+import { LoadingController, ModalController, ToastController } from '@ionic/angular';
+import { Purchase } from 'src/app/models/purchase.model';
 import { CartService } from 'src/app/services/cart.service';
+import { FirebaseService } from 'src/app/services/firebase.service';
 import { PurchasesService } from 'src/app/services/purchases.service';
 
 @Component({
-  selector: 'app-payment-detail',
-  templateUrl: './payment-detail.component.html',
-  styleUrls: ['./payment-detail.component.scss'],
+  selector: 'app-credit-card-form',
+  templateUrl: './credit-card-form.component.html',
+  styleUrls: ['./credit-card-form.component.scss'],
 })
-export class PaymentDetailComponent implements OnInit {
- 
+export class CreditCardFormComponent implements OnInit {
+
+
   card = { cardnumber: '', name: '', cvv: '', expiryDate: '' };
-  purchase;
+  purchase = {} as Purchase;
   total;
   cart;
   constructor(private modalController: ModalController,
@@ -22,23 +25,35 @@ export class PaymentDetailComponent implements OnInit {
     private router: Router,
     private toastCtrl: ToastController,
     private cartService: CartService,
-    private purchaseService: PurchasesService ) { }
+    private loadingController: LoadingController,
+    private purchaseService: PurchasesService,
+    private firebaseService: FirebaseService ) { }
 
   ngOnInit() { 
-    this.cart = this.cartService.getCart();
+    this.purchase.products = this.cartService.getCart(); 
+    this.purchase.total =  this.cartService.getTotal();
+    this.purchase.id = Date.now().toString();
+    this.purchase.date = Date.now();
+    this.purchase.img = this.purchase.products[0].img;
   }
 
   close() {
     this.modalController.dismiss();
   };
 
-  pay() {
-    if (this.validations()) {
+  async pay() {
+    if (this.validations()) {      
+      
+   
+      this.firebaseService.NewPurchase(this.purchase)
+    
+      this.router.navigate(['/tabs/user-profile/user-purchases']);
       this.modalController.dismiss();
-      this.router.navigate(['/tabs/user-purchases']);
-      this.cartService.removeAll();
-      this.purchase = {id: Date.now(), date: Date.now(), products: this.cart, total: this.cartService.getTotal()}
-      this.purchaseService.addPurchases(this.purchase)
+      setTimeout(() => {
+        //loading.dismiss();
+        this.cartService.removeAll();
+      }, 5000);
+      
     }
   } 
 

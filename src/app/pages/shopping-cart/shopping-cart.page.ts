@@ -36,14 +36,15 @@ export class ShoppingCartPage implements OnInit {
   }
 
   getTotal(){
-    return this.total = this.cartService.getTotal();
+    return this.cartService.getTotal();
   }
 
   goPay(){
     if(this.cart.length == 0){
-      this.toast('The cart is empy.')
-    }
-    this.router.navigate(['/tabs/payment-data']);
+      this.toast('The cart is empty')
+    }else{
+      this.router.navigate(['/tabs/payment-data']);
+    } 
   }
 
   async toast(message) {

@@ -46,12 +46,9 @@ export class ProductDetailComponent implements OnInit {
   }
 
   AddProduct(){
-      this.cartService.addProduct(this.product); 
-      console.log(this.cart);
-      //this.Toast('Product added to cart'); 
+      this.cartService.addProduct(this.product);      
       this.animate();
-      this.close();
-      
+      this.close();      
   }
 
 

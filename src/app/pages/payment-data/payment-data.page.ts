@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ModalController } from '@ionic/angular';
-import { PaymentDetailComponent } from 'src/app/components/payment-detail/payment-detail.component';
+import { CreditCardFormComponent } from 'src/app/components/credit-card-form/credit-card-form.component';
 
 @Component({
   selector: 'app-payment-data',
@@ -11,20 +11,16 @@ import { PaymentDetailComponent } from 'src/app/components/payment-detail/paymen
 export class PaymentDataPage implements OnInit {
 
   
-
-
   constructor(private router: Router,
               private modalController: ModalController) { }
 
   ngOnInit() {
   }
 
-  async paymentDetail(paymentTypes) {
+
+ async creditCardMethod(){
     let modal = await this.modalController. create ({
-      component: PaymentDetailComponent,
-      componentProps: ({
-        paymentTypes: paymentTypes
-      })
+      component: CreditCardFormComponent    
     });
     modal.present();
   }

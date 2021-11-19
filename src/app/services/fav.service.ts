@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { ToastController } from '@ionic/angular';
 import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
@@ -9,7 +10,7 @@ export class FavService {
   private favs = [];
   private counter = new BehaviorSubject(0);
  
-  constructor() { }
+  constructor(private toastController: ToastController) { }
 
   getCounter(){
     return this.counter;
@@ -28,6 +29,7 @@ export class FavService {
     for (let p of this.favs) {
       if (p.id === product.id) {
         this.removeProduct(product);
+        this.counter.next(this.counter.value - 1);
         added = true;
         break;
       }
@@ -35,6 +37,7 @@ export class FavService {
     if (!added) {  
       this.favs.push(product);
       this.counter.next(this.counter.value + 1);
+      this.Toast('Added to your favorite products');
     }
   }
 
@@ -47,4 +50,14 @@ removeProduct(product) {
   }
 
 }
+
+async Toast(message) {
+  const toast = await this.toastController.create({
+    message: message,
+    duration: 1000,
+    color:'primary'
+  });
+  toast.present();
+}
+
 }

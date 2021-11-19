@@ -1,40 +1,46 @@
 <ion-content>
 
-  <ion-item class="ion-no-padding" lines="none" style="--background: #c50505;color: white;">
-    <ion-buttons slot="start">
-      <ion-button (click)="close()">
-        <ion-icon color="light" style="font-size: 25px;" name="arrow-back"></ion-icon>
-        <ion-icon color="light" style="font-size: 30px;" src="../../../assets/icon/shopping-cart.svg"></ion-icon>
-      </ion-button>
-    </ion-buttons>
-    <ion-label>
-      <div style="position: relative;top: 5px;font-weight: bold;font-size: 20px;color: #ffc404;">Purchases</div>
-      <div style="font-size: 12px;position: relative;bottom: 4px;">E-Commerce</div>
-    </ion-label>
-  </ion-item>
-  <app-header-modal></app-header-modal>
-
-  
-  <div>
-
-    <div style="padding-bottom: 80px;padding-top: 20px;width: 300px;padding-left: 0;">
-      <ion-grid class="ion-no padding" fixed>
-        <ion-row>
-          <ion-col class="ion-no-padding" size="6" style="height: 240px;padding-right: 20px;" *ngFor="let p of purchases">
-
-
-
-            <ion-card style="width: 100%;height: 150px;border-radius: 12px;">
-              <div class="square-card">
-                {{p.products}}
-              </div>
-            </ion-card>
-            
-            
-          </ion-col>
-        </ion-row>
-      </ion-grid>
-    </div>
+  <app-headerd backButton="true" title="Purchases"></app-headerd>
+  <div *ngIf="waiting">
+       <ion-grid style="padding:0px 15px 70px 15px;" fixed>
+      <ion-row>
+        <ion-col  *ngFor="let p of [1,1,1,1,1,1,1,1,1]" size="12">
+          <ion-card class="shadow">
+            <div class="square">
+              <ion-skeleton-text animated style="width: 100%; height: 100%;"></ion-skeleton-text>
+            </div>
+           <div class="ion-padding" >
+            <ion-skeleton-text animated style="width: 70%"></ion-skeleton-text>
+            <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text></div>
+          </ion-card>
+        </ion-col>       
+      </ion-row>
+    </ion-grid>
   </div>
-  
+
+
+  <div *ngIf="!waiting && purchases.length > 0">
+    
+
+
+    <ion-grid style="padding:0px 15px 70px 15px;" fixed>
+      <ion-row>
+        <ion-col (click)="Purchase(p) " *ngFor="let p of purchases" size="12">
+          <ion-card class="shadow">
+            <div class="square">
+              <img [src]="p.img" />
+            </div>
+           <div class="ion-padding" >
+            <ion-text color="primary">
+              <strong style="font-size: 15px;">Fecha: {{p.date | date: 'shortDate'}} - {{p.date | date:
+                'shortTime'}}</strong>
+              <ion-text color="medium">
+                <div style="font-size: 14px;">Total: {{p.total | currency:'USD'}} </div>
+                </ion-text>
+            </ion-text></div>
+          </ion-card>
+        </ion-col>       
+      </ion-row>
+    </ion-grid>
+  </div>
 </ion-content>

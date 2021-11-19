@@ -1,19 +1,19 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { PaymentDetailComponent } from './payment-detail.component';
+import { CreditCardFormComponent } from './credit-card-form.component';
 
-describe('PaymentDetailComponent', () => {
-  let component: PaymentDetailComponent;
-  let fixture: ComponentFixture<PaymentDetailComponent>;
+describe('CreditCardFormComponent', () => {
+  let component: CreditCardFormComponent;
+  let fixture: ComponentFixture<CreditCardFormComponent>;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ PaymentDetailComponent ],
+      declarations: [ CreditCardFormComponent ],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(PaymentDetailComponent);
+    fixture = TestBed.createComponent(CreditCardFormComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));

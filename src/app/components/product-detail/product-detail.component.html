@@ -1,41 +1,45 @@
 <ion-content>
-  <app-headerd title="Product Detail"></app-headerd>
-     
-  <div style="padding-top: 15px;padding-left: 50px;padding-right: 50px;">
-    <ion-card style="border-radius: 12px;" class="shadow">
-      <div class="square">
-        <img src={{product.img}}>
-      </div>
-    </ion-card>
-  </div>
+  <app-headerd backButtonModal="true" [title]="product.name"></app-headerd>
 
-  <div style="padding: 10px;padding-top: 10px;">
-    <ion-card class="shadow" style="border-radius: 20px;padding-bottom: 15px;padding-top: 15px;">
-      <h1 style="color: #ffc404; font-size: 30px;padding-left: 15px;padding-top: 10px;">{{product.name}}</h1>
 
-      <h1 style="color: #5f5959;font-size: 15px;padding-top: 10px;padding-left: 15px;">Description</h1>
 
-      <div style="padding: 10px;">
-         <h1 style="color: #908484;font-size: 10px;">{{product.description}}</h1>
-      </div>
+  <div style="padding: 20px;padding-top: 0;">
 
-      <div>
-        <ion-item lines="none" style="--background: transparent;">
-          <ion-label style="color: #c50505;"> {{product.price| currency: 'USD'}} </ion-label>
+    <div class="square shadow">
+      <img src={{product.img}}>
+    </div>
+    
+    <div style="padding-top: 15px;">
+
+
+      <ion-card class="shadow" style="border-radius: 20px;padding:20px;">
+
+
+        <h3 style="color: #5f5959;padding-bottom: 10px;">Description</h3>
+
+
+        <p style="color: #908484;font-size: 12px;text-align: justify;padding-bottom: 10px;">{{product.description}}</p>
+
+
+
+        <ion-item lines="none" class="ion-no-padding">
+          <ion-label color="primary" style="font-size: 20px;"> {{product.price| currency: 'USD'}} </ion-label>
           <ion-buttons slot="end">
             <ion-button (click)="favActive()">
-              <ion-icon  *ngIf ="!product.fav" style="padding-right: 5px;font-size: 20px;color: #c50505;"  name="heart-outline" ></ion-icon>
-              <ion-icon  *ngIf ="product.fav" style="padding-right: 5px;font-size: 20px;color: #c50505;" name="heart"></ion-icon>
+              <ion-icon *ngIf="!product.fav" color="medium" style="padding-right: 5px;font-size: 20px;"
+                name="heart-outline"></ion-icon>
+              <ion-icon *ngIf="product.fav" color="primary" style="padding-right: 5px;font-size: 20px;" name="heart">
+              </ion-icon>
             </ion-button>
-            <ion-button (click)="AddProduct()" fill="clear" shape="round" style="--background: #ffc404;color: white;font-size: 15px;">
-              <span style="font-size: 10px;">ADD TO CART</span>
+            <ion-button (click)="AddProduct()" fill="solid" shape="round" color="secondary">
+              <span style="font-size: 10px;">Add to Cart</span>
             </ion-button>
           </ion-buttons>
         </ion-item>
-      </div>
-    </ion-card>
+
+      </ion-card>
+    </div>
   </div>
 
-  
 
 </ion-content>

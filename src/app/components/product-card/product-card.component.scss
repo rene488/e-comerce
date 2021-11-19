@@ -1,24 +1,4 @@
-.square{
-    width: 150px;
-    height: 250px;
-    background: transparent;
-    overflow: hidden;
-    border-radius: 12px;
-    
-  }
-  
-  .square img{
-    width: 100%;
-    height: auto;
-    
-  }
-  @supports(object-fit: cover){
-      .square img{
-        height: 100%;
-        object-fit: cover;
-        object-position: center center;
-      }
-  }
+
 
 
   .square-card{

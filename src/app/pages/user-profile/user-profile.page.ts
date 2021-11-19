@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActionSheetController } from '@ionic/angular';
 import { AuthService } from 'src/app/services/auth.service';
+import { FirebaseService } from 'src/app/services/firebase.service';
 
 @Component({
   selector: 'app-user-profile',
@@ -15,7 +16,7 @@ export class UserProfilePage implements OnInit {
    tips = 100
 
   constructor(private actionSheetController: ActionSheetController,
-              private authService: AuthService) { }
+    private firebaseService: FirebaseService) { }
 
   ngOnInit() {
   }
@@ -39,7 +40,7 @@ export class UserProfilePage implements OnInit {
         text: 'Log out',
         icon: 'log-out-outline',
         handler: () => {
-          this.authService.logOut();
+          this.firebaseService.logout();
         }
       }]
     });

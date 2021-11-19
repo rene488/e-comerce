@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { Router } from '@angular/router';
+import { ToastController } from '@ionic/angular';
+import { FirebaseService } from 'src/app/services/firebase.service';
 
 
 @Component({
@@ -10,9 +12,9 @@ import { Router } from '@angular/router';
 })
 export class NewUserPage implements OnInit {
 
-   form;
+   form: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private router: Router) {
+  constructor(private formBuilder: FormBuilder, private router: Router,private firebaseService: FirebaseService, private toastController: ToastController) {
    
   }
 
@@ -20,8 +22,7 @@ export class NewUserPage implements OnInit {
 
     this.form = this.formBuilder.group({
       email: [''.toLowerCase(), [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(6)]],
-      confirmPassword: ['', Validators.required, Validators.minLength(6)],
+      password: ['', [Validators.required, Validators.minLength(6)]],     
       username: ['', [Validators.required]],
     });
   }
@@ -29,6 +30,19 @@ export class NewUserPage implements OnInit {
   goTo(){
     this.router.navigate(['/tabs/home'])
   }
+
+ Submit(){
+   if (this.form.valid){
+      this.firebaseService.NewUser(this.form.value);
+      this.form.reset();
+   }else{
+    this.Toast('Fill in all the fields');
+   }
+ 
+ }
+
+
+
 
   get username() {
     return this.form.get('username')
@@ -42,8 +56,18 @@ export class NewUserPage implements OnInit {
     return this.form.get('password');
   }
 
-  get confirmPassword() {
-    return this.form.get('confirmPassword')
+
+  
+  async Toast(message: string) {
+    const toast = await this.toastController.create({
+      message: message,
+      position: 'bottom',
+      duration: 1000,
+      color: 'secondary',
+    });
+    toast.present();
+
+
   }
 
 }
